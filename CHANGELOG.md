@@ -1,0 +1,21 @@
+# Changelog
+
+## 0.1.0 (2025-04-04)
+
+### Tasks
+
+* 🤖 bump eslint-import-resolver-typescript ([fc969e3](https://github.com/phun-ky/eslint-config/commit/fc969e354a040a9026b356ed687de1f552292ecc))
+
+### Documentation
+
+* ✏️ Remove old banner ([2f52358](https://github.com/phun-ky/eslint-config/commit/2f523588bed6f8bda0031cfdf2fc4bc0bd49d4dc))
+
+### Feature
+
+* 🎸 First version of my opinionated eslintconfig ([0adea9e](https://github.com/phun-ky/eslint-config/commit/0adea9eae45280f942bce200b0b7d5781aaf24ba))
+
+### Bug
+
+* 🐛 Add missing dev deps ([df8db08](https://github.com/phun-ky/eslint-config/commit/df8db08d3dcce48a46d6c850cc8e8b13fe937ba3))
+* 🐛 Add missing script ([7670fe0](https://github.com/phun-ky/eslint-config/commit/7670fe014267abb440eca82d3d3c4136f8ba24f2))
+* 🐛 Fix release it process ([1bed20c](https://github.com/phun-ky/eslint-config/commit/1bed20c88992ed9f045807b83cc0662c38162b47))
