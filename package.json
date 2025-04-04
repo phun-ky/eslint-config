@@ -1,0 +1,60 @@
+{
+  "name": "@phun-ky/eslint-config",
+  "version": "0.0.1",
+  "description": "An opinionated eslint flat config",
+  "homepage": "https://github.com/phun-ky/eslint-config#readme",
+  "bugs": {
+    "url": "https://github.com/phun-ky/eslint-config/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phun-ky/eslint-config.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-config"
+  ],
+  "license": "MIT",
+  "author": "Alexander Vassbotn Røyne-Helgesen <alexander@phun-ky.net>",
+  "type": "module",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "commit": "npx git-cz",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/git-cz"
+    }
+  },
+  "engines": {
+    "node": ">=22.9.0",
+    "npm": ">=11.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "eslint": ">= 9"
+  },
+  "dependencies": {
+    "@eslint/js": "^9.24.0",
+    "@eslint/markdown": "^6.3.0",
+    "@stylistic/eslint-plugin": "^4.2.0",
+    "eslint-plugin-compat": "^6.0.2",
+    "eslint-import-resolver-typescript": "^3.7.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-prettier": "^5.2.6",
+    "globals": "^16.0.0",
+    "typescript-eslint": "^8.29.0"
+  },
+  "devDependencies": {
+    "git-cz": "^4.9.0",
+    "release-it": "^18.1.2",
+    "prettier": "3.5.1",
+    "eslint-config-prettier": "^10.0.1"
+  }
+}
