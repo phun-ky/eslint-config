@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.1](https://github.com/phun-ky/eslint-config/compare/0.1.0...0.1.1) (2025-04-04)
+
+### Tasks
+
+* 🤖 bump prettier from 3.5.1 to 3.5.3 in the minor-and-patch group ([5957a33](https://github.com/phun-ky/eslint-config/commit/5957a33b38cb524f3282df576e88313b2f358769))
+
 ## 0.1.0 (2025-04-04)
 
 ### Tasks
