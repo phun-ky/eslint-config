@@ -79,8 +79,6 @@ we're all part of :)
 
 [Support me on GitHub Sponsors](https://github.com/sponsors/phun-ky).
 
-![eslint-config banner, with logo and slogan: A zero dependency package to annotate or highlight elements](./public/eslint-config-banner.png)
-
 p.s. **Ukraine is still under brutal Russian invasion. A lot of Ukrainian people
 are hurt, without shelter and need help**. You can help in various ways, for
 instance, directly helping refugees, spreading awareness, putting pressure on
