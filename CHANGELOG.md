@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.2](https://github.com/phun-ky/eslint-config/compare/0.1.1...0.1.2) (2025-04-08)
+
+### Tasks
+
+* 🤖 bump eslint-import-resolver-typescript ([403565a](https://github.com/phun-ky/eslint-config/commit/403565a96b6ae6dae81195b4242df026ce78cb7c))
+
 ## [0.1.1](https://github.com/phun-ky/eslint-config/compare/0.1.0...0.1.1) (2025-04-04)
 
 ### Tasks
