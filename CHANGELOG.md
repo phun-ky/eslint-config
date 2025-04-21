@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.4](https://github.com/phun-ky/eslint-config/compare/0.1.3...0.1.4) (2025-04-21)
+
+### Tasks
+
+* 🤖 bump the minor-and-patch group with 5 updates ([eed6a2c](https://github.com/phun-ky/eslint-config/commit/eed6a2c5a43408658f7d07a8194c0d22b397b08b))
+
 ## [0.1.3](https://github.com/phun-ky/eslint-config/compare/0.1.2...0.1.3) (2025-04-15)
 
 ### Tasks
