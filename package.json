@@ -1,6 +1,6 @@
 {
   "name": "@phun-ky/eslint-config",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "An opinionated eslint flat config",
   "homepage": "https://github.com/phun-ky/eslint-config#readme",
   "bugs": {
