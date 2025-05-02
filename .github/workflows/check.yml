@@ -10,6 +10,10 @@ on:
     paths:
       - '.github/**'
       - 'src/**'
+      - 'index.js'
+      - 'index.ts'
+      - 'index.cjs'
+      - 'index.mjs'
       - 'package.json'
       - 'package-lock.json'
       - 'rollup.config.js'
@@ -21,6 +25,10 @@ on:
     paths:
       - '.github/**'
       - 'src/**'
+      - 'index.js'
+      - 'index.ts'
+      - 'index.cjs'
+      - 'index.mjs'
       - 'package.json'
       - 'package-lock.json'
       - 'rollup.config.js'
