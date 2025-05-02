@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.9](https://github.com/phun-ky/eslint-config/compare/0.1.8...0.1.9) (2025-05-02)
+
+### Tasks
+
+* 🤖 Add more files to trigger `check` ([916bfe2](https://github.com/phun-ky/eslint-config/commit/916bfe266615d93b0760e87a3faa67a341a32461))
+
 ## [0.1.8](https://github.com/phun-ky/eslint-config/compare/0.1.7...0.1.8) (2025-05-02)
 
 ## [0.1.7](https://github.com/phun-ky/eslint-config/compare/0.1.6...0.1.7) (2025-05-02)
