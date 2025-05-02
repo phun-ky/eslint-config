@@ -13,6 +13,7 @@ export default [
     ignores: [
       '**/dts',
       '**/node_modules',
+      '**/dts',
       '**/coverage',
       '**/dist',
       '**/__tests__',
