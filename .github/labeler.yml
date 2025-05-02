@@ -14,16 +14,14 @@
           - any-glob-to-any-file:
               - '.editorconfig'
               - '.eslintignore'
-              - 'eslint.config.mjs'
-              - 'eslint.config.js'
-              - 'eslint.config.cjs'
               - '.eslintrc.json'
               - '.eslintrc.js'
-              - '.eslintrc'
               - '.gitignore'
               - '.release-it.json'
               - '.renovate.json'
               - '.npmrc'
+              - '.prettierrc'
+              - 'tslint.json'
 'context: github':
   - any:
       - changed-files:
@@ -47,7 +45,7 @@
               - 'rollup.config.mjs'
               - 'rollup.*.config.js'
               - 'rollup.*.config.mjs'
-'mindless: ✏️ docs':
+'mindless: docs':
   - any:
       - head-branch: ['^docs', 'docs']
       - changed-files:
@@ -63,11 +61,11 @@
 # Add '✨ feature' label to any PR where the head branch name starts with `feat` or has a `feat` section in the name
 '✨ feature':
   - head-branch: ['^feat', 'feat']
-'problems: 🐛 bug':
+'problems: bug':
   - head-branch: ['^fix', 'fix']
-'mindless: 🤖 chore':
+'mindless: chore':
   - head-branch: ['^chore', 'chore']
-'improvements: 💡 enhancement':
+'improvements: enhancement':
   - head-branch: ['^improvements', 'improvements']
 
 # Add 'release' label to any PR that is opened against the `main` branch
