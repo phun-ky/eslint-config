@@ -1,5 +1,7 @@
 # Changelog
 
+## [0.1.7](https://github.com/phun-ky/eslint-config/compare/0.1.6...0.1.7) (2025-05-02)
+
 ## [0.1.6](https://github.com/phun-ky/eslint-config/compare/0.1.5...0.1.6) (2025-04-29)
 
 ### Tasks
