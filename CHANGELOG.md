@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.10](https://github.com/phun-ky/eslint-config/compare/0.1.9...0.1.10) (2025-05-04)
+
+### Bug
+
+* 🐛 Turn off some rules for markdown linting that is broken ([d168096](https://github.com/phun-ky/eslint-config/commit/d168096217fe5535479a29f19b7cdb08cc94a3cc))
+
 ## [0.1.9](https://github.com/phun-ky/eslint-config/compare/0.1.8...0.1.9) (2025-05-02)
 
 ### Tasks
