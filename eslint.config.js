@@ -6,5 +6,12 @@ export default defineConfig([
   {
     files: ['**/*.js'],
     extends: [config]
+  },
+  {
+    files: ['**/*.md'],
+    rules: {
+      'no-irregular-whitespace': 'off',
+      '@stylistic/indent': 'off'
+    }
   }
 ]);
