@@ -220,5 +220,12 @@ export default [
       ],
       '@stylistic/semi': 1
     }
+  },
+  {
+    files: ['**/*.md'],
+    rules: {
+      'no-irregular-whitespace': 'off',
+      '@stylistic/indent': 'off'
+    }
   }
 ];
