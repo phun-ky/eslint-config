@@ -2,6 +2,10 @@
   "name": "@phun-ky/eslint-config",
   "version": "0.1.11",
   "description": "An opinionated eslint flat config",
+  "keywords": [
+    "eslint",
+    "eslint-config"
+  ],
   "homepage": "https://github.com/phun-ky/eslint-config#readme",
   "bugs": {
     "url": "https://github.com/phun-ky/eslint-config/issues"
@@ -10,10 +14,6 @@
     "type": "git",
     "url": "git+https://github.com/phun-ky/eslint-config.git"
   },
-  "keywords": [
-    "eslint",
-    "eslint-config"
-  ],
   "license": "MIT",
   "author": "Alexander Vassbotn Røyne-Helgesen <alexander@phun-ky.net>",
   "type": "module",
@@ -30,16 +30,6 @@
     "commitizen": {
       "path": "./node_modules/git-cz"
     }
-  },
-  "engines": {
-    "node": ">=22.9.0",
-    "npm": ">=11.0.0"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "peerDependencies": {
-    "eslint": ">= 9"
   },
   "dependencies": {
     "@eslint/js": "^9.24.0",
@@ -58,5 +48,15 @@
     "git-cz": "^4.9.0",
     "prettier": "3.5.3",
     "release-it": "^19.0.1"
+  },
+  "peerDependencies": {
+    "eslint": ">= 9"
+  },
+  "engines": {
+    "node": ">=22.9.0",
+    "npm": ">=11.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
