@@ -18,7 +18,9 @@
 - [eslint-config-phun-ky](#eslint-config-phun-ky)
   - [Install](#install)
   - [Usage](#usage)
+    - [Files](#files)
   - [Rules](#rules)
+    - [Extended](#extended)
   - [Contributing](#contributing)
   - [License](#license)
   - [Changelog](#changelog)
@@ -53,7 +55,65 @@ export default defineConfig([
 ]);
 ```
 
+### Files
+
+By default, the config covers these files:
+
+```
+['**/*.{js,mjs,cjs,ts,tsx,md}']
+```
+
 ## Rules
+
+The custom rules extends/overrides these configs and plugins:
+
+```js
+{
+  …,
+  {
+    ...markdown.configs.recommended,
+    eslint.configs.recommended,
+    importPlugin.flatConfigs.recommended,
+    importPlugin.flatConfigs.typescript,
+    compat.configs['flat/recommended'],
+    ...tsConfigs.recommended,
+    eslintPluginPrettierRecommended,
+  },
+  plugins: {
+    '@stylistic': stylistic
+  },
+  …
+}
+```
+
+### Extended
+
+🔧 Automatically fixable with
+[`--fix` CLI option](https://eslint.org/docs/user-guide/command-line-interface#--fix).
+
+| Rule                                                                                                                        | Description                                                                           | 🔧  |
+| --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | --- |
+| [import/no-named-as-default](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-named-as-default.md) | Disallows named imports that may conflict with default exports.                       |     |
+| [import/no-unused-modules](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-unused-modules.md)     | Reports modules without any exports or imports used elsewhere.                        |     |
+| [import/order](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md)                             | Enforces a consistent order for import statements.                                    | 🔧  |
+| [no-alert](https://eslint.org/docs/latest/rules/no-alert)                                                                   | Disallows `alert`, `confirm`, and `prompt`.                                           |     |
+| [no-console](https://eslint.org/docs/latest/rules/no-console)                                                               | Disallows use of `console`.                                                           |     |
+| [no-undef](https://eslint.org/docs/latest/rules/no-undef)                                                                   | Disallows the use of undeclared variables unless mentioned in `/*global */` comments. |     |
+| [no-unreachable](https://eslint.org/docs/latest/rules/no-unreachable)                                                       | Disallows unreachable code after `return`, `throw`, `continue`, and `break`.          |     |
+| [prefer-const](https://eslint.org/docs/latest/rules/prefer-const)                                                           | Suggests using `const` declaration for variables that are never reassigned.           | 🔧  |
+| [one-var](https://eslint.org/docs/latest/rules/one-var)                                                                     | Enforces variables to be declared either together or separately in functions.         | 🔧  |
+| [@stylistic/array-bracket-newline](https://eslint.style/rules/array-bracket-newline)                                        | Enforces line breaks inside brackets.                                                 | 🔧  |
+| [@stylistic/max-len](https://eslint.style/rules/max-len)                                                                    | Enforces a maximum line length.                                                       |     |
+| [@stylistic/quotes](https://eslint.style/rules/quotes)                                                                      | Enforces the consistent use of quotes.                                                | 🔧  |
+| [@stylistic/padded-blocks](https://eslint.style/rules/padded-blocks)                                                        | Enforces or disallows padding within blocks.                                          | 🔧  |
+| [@stylistic/comma-dangle](https://eslint.style/rules/comma-dangle)                                                          | Requires or disallows trailing commas.                                                | 🔧  |
+| [@stylistic/padding-line-between-statements](https://eslint.style/rules/padding-line-between-statements)                    | Requires or disallows blank lines between statements.                                 | 🔧  |
+| [@stylistic/indent](https://eslint.style/rules/indent)                                                                      | Enforces consistent indentation.                                                      | 🔧  |
+| [@stylistic/object-curly-spacing](https://eslint.style/rules/object-curly-spacing)                                          | Enforces consistent spacing inside braces.                                            | 🔧  |
+| [@stylistic/no-extra-semi](https://eslint.style/rules/no-extra-semi)                                                        | Disallows unnecessary semicolons.                                                     | 🔧  |
+| [@stylistic/no-trailing-spaces](https://eslint.style/rules/no-trailing-spaces)                                              | Disallows trailing whitespace at the end of lines.                                    | 🔧  |
+| [@stylistic/semi](https://eslint.style/rules/semi)                                                                          | Enforces or disallows semicolons.                                                     | 🔧  |
+| [no-irregular-whitespace](https://eslint.org/docs/latest/rules/no-irregular-whitespace)                                     | Disallows irregular whitespace.                                                       | 🔧  |
 
 ## Contributing
 
