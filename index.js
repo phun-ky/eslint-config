@@ -78,8 +78,7 @@ export default [
           'newlines-between': 'always'
         }
       ],
-      'global-strict': 0,
-      'no-alert': 0,
+      'no-alert': 1,
       'no-console': 1,
       'no-undef': 2,
       'no-unreachable': 1,
