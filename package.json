@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-phun-ky",
-  "version": "0.1.12",
+  "version": "1.0.0",
   "description": "An opinionated eslint-config that someone else could also use, with more than 450 helpful ESLint rules",
   "keywords": [
     "eslint",

@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.0.0](https://github.com/phun-ky/eslint-config/compare/0.1.12...1.0.0) (2025-05-06)
+
+### ⚠ BREAKING CHANGES
+
+* 🧨 To follow the "standard" with ESLint config naming, I've renamed the
+package to `eslint-config-phun-ky`. The previous package is to be
+deprecated
+
+### Tasks
+
+* 🤖 Reinstall ([b12fd31](https://github.com/phun-ky/eslint-config/commit/b12fd31c86d745ed48318a9fa5b4ab7b4f9ae210))
+* 🤖 Rename package to `eslint-config-phun-ky` ([8822fc6](https://github.com/phun-ky/eslint-config/commit/8822fc6d55f025fb0aeddb183fa85dc531e1dc00))
+
+### Documentation
+
+* ✏️ Add more documentation about the rules and files ([c8653c1](https://github.com/phun-ky/eslint-config/commit/c8653c1290d3f5856e232bc457ed8286b84a37a2))
+
+### Feature
+
+* 🎸 Add `tsx` into files array ([9cea048](https://github.com/phun-ky/eslint-config/commit/9cea048fb8e45f9b7e945771dda5a0d6659127c7))
+
+### Bug
+
+* 🐛 Remove deprecated rule, turn on `no-alert` ([644ef78](https://github.com/phun-ky/eslint-config/commit/644ef7826c18fecf6271a9f7b569f3867a6ef153))
+
 ## [0.1.12](https://github.com/phun-ky/eslint-config/compare/0.1.11...0.1.12) (2025-05-06)
 
 ### Tasks
