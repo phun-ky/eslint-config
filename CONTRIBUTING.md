@@ -1,4 +1,4 @@
-# Contributing to **@phun-ky/eslint-config**
+# Contributing to **eslint-config-phun-ky**
 
 First off, thanks for taking the time to contribute! ❤️
 
@@ -20,7 +20,7 @@ forward to your contributions. 🎉
 
 ## Table of Contents
 
-- [Contributing to **@phun-ky/eslint-config**](#contributing-to-phun-kyeslint-config)
+- [Contributing to **eslint-config-phun-ky**](#contributing-to-eslint-config-phun-ky)
   - [Table of Contents](#table-of-contents)
   - [Code of Conduct](#code-of-conduct)
   - [I Have a Question](#i-have-a-question)
@@ -36,7 +36,7 @@ forward to your contributions. 🎉
 ## Code of Conduct
 
 This project and everyone participating in it is governed by the
-[**@phun-ky/eslint-config** Code of Conduct](https://github.com/phun-ky/eslint-config/blob/master/CODE_OF_CONDUCT.md).
+[**eslint-config-phun-ky** Code of Conduct](https://github.com/phun-ky/eslint-config/blob/master/CODE_OF_CONDUCT.md).
 By participating, you are expected to uphold this code. Please report
 unacceptable behaviour to <code-of-conduct@phun-ky.net>.
 
@@ -103,7 +103,7 @@ steps in advance to help us fix any potential bug as fast as possible.
 > You must never report security related issues, vulnerabilities or bugs
 > including sensitive information to the issue tracker, or elsewhere in public.
 > Instead sensitive bugs must be sent by email to
-> <@phun-ky/eslint-config@phun-ky.net>.
+> <eslint-config-phun-ky@phun-ky.net>.
 
 <!-- You may add a PGP key to allow the messages to be sent encrypted as well. -->
 
@@ -135,7 +135,7 @@ Once it's filed:
 ### Suggesting Enhancements
 
 This section guides you through submitting an enhancement suggestion for
-**@phun-ky/eslint-config**, **including completely new features and minor
+**eslint-config-phun-ky**, **including completely new features and minor
 improvements to existing functionality**. Following these guidelines will help
 maintainers and the community to understand your suggestion and find related
 suggestions.
@@ -173,7 +173,7 @@ Enhancement suggestions are tracked as
   macOS and Windows, and [this tool](https://github.com/colinkeenan/silentcast)
   or [this tool](https://github.com/GNOME/byzanz) on Linux.
 - **Explain why this enhancement would be useful** to most
-  **@phun-ky/eslint-config** users. You may also want to point out the other
+  **eslint-config-phun-ky** users. You may also want to point out the other
   projects that solved it better and which could serve as inspiration.
 
 ## Attribution

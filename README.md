@@ -1,22 +1,24 @@
-# @phun-ky/eslint-config
+# eslint-config-phun-ky
 
-An opinionated eslint-config that someone else could also use :)
+> An opinionated eslint-config that someone else could also use, with more than
+> 450 helpful ESLint rules :)
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](http://makeapullrequest.com)
 [![SemVer 2.0](https://img.shields.io/badge/SemVer-2.0-green.svg)](http://semver.org/spec/v2.0.0.html)
-![npm version](https://img.shields.io/npm/v/@phun-ky/eslint-config)
+![npm version](https://img.shields.io/npm/v/eslint-config-phun-ky)
 ![issues](https://img.shields.io/github/issues/phun-ky/eslint-config)
-![license](https://img.shields.io/npm/l/@phun-ky/eslint-config)
-![size](https://img.shields.io/bundlephobia/min/@phun-ky/eslint-config)
-![npm](https://img.shields.io/npm/dm/%40phun-ky/eslint-config)
+![license](https://img.shields.io/npm/l/eslint-config-phun-ky)
+![size](https://img.shields.io/bundlephobia/min/eslint-config-phun-ky)
+![npm](https://img.shields.io/npm/dm/eslint-config-phun-ky)
 ![GitHub Repo stars](https://img.shields.io/github/stars/phun-ky/eslint-config)
 
 ## Table of Contents<!-- omit from toc -->
 
-- [@phun-ky/eslint-config](#phun-kyeslint-config)
+- [eslint-config-phun-ky](#eslint-config-phun-ky)
   - [Install](#install)
   - [Usage](#usage)
+  - [Rules](#rules)
   - [Contributing](#contributing)
   - [License](#license)
   - [Changelog](#changelog)
@@ -25,15 +27,18 @@ An opinionated eslint-config that someone else could also use :)
 ## Install
 
 ```
-npm i -D @phun-ky/eslint-config
+npm i -D eslint eslint-config-phun-ky
 ```
+
+Requires ESLint >=9.20.0 and
+[flat config](https://eslint.org/docs/latest/use/configure/configuration-files).
 
 ## Usage
 
 ```js
 // eslint.config.js
 import { defineConfig } from 'eslint/config';
-import customConfig from '@phun-ky/eslint-config';
+import customConfig from 'eslint-config-phun-ky';
 
 export default defineConfig([
   {
@@ -47,6 +52,8 @@ export default defineConfig([
   }
 ]);
 ```
+
+## Rules
 
 ## Contributing
 
