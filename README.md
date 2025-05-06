@@ -1,22 +1,26 @@
-# @phun-ky/eslint-config
+# eslint-config-phun-ky
 
-An opinionated eslint-config that someone else could also use :)
+> An opinionated eslint-config that someone else could also use, with more than
+> 450 helpful ESLint rules :)
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](http://makeapullrequest.com)
 [![SemVer 2.0](https://img.shields.io/badge/SemVer-2.0-green.svg)](http://semver.org/spec/v2.0.0.html)
-![npm version](https://img.shields.io/npm/v/@phun-ky/eslint-config)
+![npm version](https://img.shields.io/npm/v/eslint-config-phun-ky)
 ![issues](https://img.shields.io/github/issues/phun-ky/eslint-config)
-![license](https://img.shields.io/npm/l/@phun-ky/eslint-config)
-![size](https://img.shields.io/bundlephobia/min/@phun-ky/eslint-config)
-![npm](https://img.shields.io/npm/dm/%40phun-ky/eslint-config)
+![license](https://img.shields.io/npm/l/eslint-config-phun-ky)
+![size](https://img.shields.io/bundlephobia/min/eslint-config-phun-ky)
+![npm](https://img.shields.io/npm/dm/eslint-config-phun-ky)
 ![GitHub Repo stars](https://img.shields.io/github/stars/phun-ky/eslint-config)
 
 ## Table of Contents<!-- omit from toc -->
 
-- [@phun-ky/eslint-config](#phun-kyeslint-config)
+- [eslint-config-phun-ky](#eslint-config-phun-ky)
   - [Install](#install)
   - [Usage](#usage)
+    - [Files](#files)
+  - [Rules](#rules)
+    - [Extended](#extended)
   - [Contributing](#contributing)
   - [License](#license)
   - [Changelog](#changelog)
@@ -25,15 +29,18 @@ An opinionated eslint-config that someone else could also use :)
 ## Install
 
 ```
-npm i -D @phun-ky/eslint-config
+npm i -D eslint eslint-config-phun-ky
 ```
+
+Requires ESLint >=9.20.0 and
+[flat config](https://eslint.org/docs/latest/use/configure/configuration-files).
 
 ## Usage
 
 ```js
 // eslint.config.js
 import { defineConfig } from 'eslint/config';
-import customConfig from '@phun-ky/eslint-config';
+import customConfig from 'eslint-config-phun-ky';
 
 export default defineConfig([
   {
@@ -47,6 +54,66 @@ export default defineConfig([
   }
 ]);
 ```
+
+### Files
+
+By default, the config covers these files:
+
+```
+['**/*.{js,mjs,cjs,ts,tsx,md}']
+```
+
+## Rules
+
+The custom rules extends/overrides these configs and plugins:
+
+```js
+{
+  …,
+  {
+    ...markdown.configs.recommended,
+    eslint.configs.recommended,
+    importPlugin.flatConfigs.recommended,
+    importPlugin.flatConfigs.typescript,
+    compat.configs['flat/recommended'],
+    ...tsConfigs.recommended,
+    eslintPluginPrettierRecommended,
+  },
+  plugins: {
+    '@stylistic': stylistic
+  },
+  …
+}
+```
+
+### Extended
+
+🔧 Automatically fixable with
+[`--fix` CLI option](https://eslint.org/docs/user-guide/command-line-interface#--fix).
+
+| Rule                                                                                                                        | Description                                                                           | 🔧  |
+| --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | --- |
+| [import/no-named-as-default](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-named-as-default.md) | Disallows named imports that may conflict with default exports.                       |     |
+| [import/no-unused-modules](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-unused-modules.md)     | Reports modules without any exports or imports used elsewhere.                        |     |
+| [import/order](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md)                             | Enforces a consistent order for import statements.                                    | 🔧  |
+| [no-alert](https://eslint.org/docs/latest/rules/no-alert)                                                                   | Disallows `alert`, `confirm`, and `prompt`.                                           |     |
+| [no-console](https://eslint.org/docs/latest/rules/no-console)                                                               | Disallows use of `console`.                                                           |     |
+| [no-undef](https://eslint.org/docs/latest/rules/no-undef)                                                                   | Disallows the use of undeclared variables unless mentioned in `/*global */` comments. |     |
+| [no-unreachable](https://eslint.org/docs/latest/rules/no-unreachable)                                                       | Disallows unreachable code after `return`, `throw`, `continue`, and `break`.          |     |
+| [prefer-const](https://eslint.org/docs/latest/rules/prefer-const)                                                           | Suggests using `const` declaration for variables that are never reassigned.           | 🔧  |
+| [one-var](https://eslint.org/docs/latest/rules/one-var)                                                                     | Enforces variables to be declared either together or separately in functions.         | 🔧  |
+| [@stylistic/array-bracket-newline](https://eslint.style/rules/array-bracket-newline)                                        | Enforces line breaks inside brackets.                                                 | 🔧  |
+| [@stylistic/max-len](https://eslint.style/rules/max-len)                                                                    | Enforces a maximum line length.                                                       |     |
+| [@stylistic/quotes](https://eslint.style/rules/quotes)                                                                      | Enforces the consistent use of quotes.                                                | 🔧  |
+| [@stylistic/padded-blocks](https://eslint.style/rules/padded-blocks)                                                        | Enforces or disallows padding within blocks.                                          | 🔧  |
+| [@stylistic/comma-dangle](https://eslint.style/rules/comma-dangle)                                                          | Requires or disallows trailing commas.                                                | 🔧  |
+| [@stylistic/padding-line-between-statements](https://eslint.style/rules/padding-line-between-statements)                    | Requires or disallows blank lines between statements.                                 | 🔧  |
+| [@stylistic/indent](https://eslint.style/rules/indent)                                                                      | Enforces consistent indentation.                                                      | 🔧  |
+| [@stylistic/object-curly-spacing](https://eslint.style/rules/object-curly-spacing)                                          | Enforces consistent spacing inside braces.                                            | 🔧  |
+| [@stylistic/no-extra-semi](https://eslint.style/rules/no-extra-semi)                                                        | Disallows unnecessary semicolons.                                                     | 🔧  |
+| [@stylistic/no-trailing-spaces](https://eslint.style/rules/no-trailing-spaces)                                              | Disallows trailing whitespace at the end of lines.                                    | 🔧  |
+| [@stylistic/semi](https://eslint.style/rules/semi)                                                                          | Enforces or disallows semicolons.                                                     | 🔧  |
+| [no-irregular-whitespace](https://eslint.org/docs/latest/rules/no-irregular-whitespace)                                     | Disallows irregular whitespace.                                                       | 🔧  |
 
 ## Contributing
 
