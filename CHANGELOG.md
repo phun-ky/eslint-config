@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.12](https://github.com/phun-ky/eslint-config/compare/0.1.11...0.1.12) (2025-05-06)
+
+### Tasks
+
+* 🤖 Move eslint related stuff from dev dep to dep ([a4e1931](https://github.com/phun-ky/eslint-config/commit/a4e1931bcc782a0f068ad84b5d08711066f941be))
+* 🤖 Sort `package.json` ([3349c0c](https://github.com/phun-ky/eslint-config/commit/3349c0c81b4cbf70afe6bbf0b41fd0742421fdb5))
+
 ## [0.1.11](https://github.com/phun-ky/eslint-config/compare/0.1.10...0.1.11) (2025-05-05)
 
 ### Tasks
