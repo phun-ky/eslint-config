@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/phun-ky/eslint-config/compare/1.0.0...1.0.1) (2025-05-12)
+
+### Tasks
+
+* 🤖 Add custom labels for PR size addon ([431e86e](https://github.com/phun-ky/eslint-config/commit/431e86e522624eb4ffe5a50a11c13398fb5e45d5))
+* 🤖 bump the minor-and-patch group with 2 updates ([96cb13a](https://github.com/phun-ky/eslint-config/commit/96cb13aee893c7acbafe16eff19855d885658592))
+
 ## [1.0.0](https://github.com/phun-ky/eslint-config/compare/0.1.12...1.0.0) (2025-05-06)
 
 ### ⚠ BREAKING CHANGES
