@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.7](https://github.com/phun-ky/eslint-config/compare/1.0.6...1.0.7) (2025-06-23)
+
+### Tasks
+
+* 🤖 bump @stylistic/eslint-plugin in the major-updates group ([e524c9e](https://github.com/phun-ky/eslint-config/commit/e524c9ea0188e88745bd5f63df0cd2929799ae36))
+
 ## [1.0.6](https://github.com/phun-ky/eslint-config/compare/1.0.5...1.0.6) (2025-06-16)
 
 ### Tasks
