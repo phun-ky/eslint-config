@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.11](https://github.com/phun-ky/eslint-config/compare/1.0.10...1.0.11) (2025-07-20)
+
+### Tasks
+
+* 🤖 bump @eslint/markdown in the major-updates group ([3e33a8c](https://github.com/phun-ky/eslint-config/commit/3e33a8cfef167135e8be69bcbf3703d1b0ba41b0))
+
 ## [1.0.10](https://github.com/phun-ky/eslint-config/compare/1.0.9...1.0.10) (2025-07-20)
 
 ### Tasks
