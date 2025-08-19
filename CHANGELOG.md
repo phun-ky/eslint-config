@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.14](https://github.com/phun-ky/eslint-config/compare/1.0.13...1.0.14) (2025-08-19)
+
+### Tasks
+
+* 🤖 bump typescript-eslint in the minor-and-patch group ([e343622](https://github.com/phun-ky/eslint-config/commit/e3436226afa3d098379ecc6530253d20bbb2c8f0))
+
 ## [1.0.13](https://github.com/phun-ky/eslint-config/compare/1.0.12...1.0.13) (2025-08-12)
 
 ### Tasks
