@@ -23,7 +23,7 @@
   ],
   "scripts": {
     "commit": "npx git-cz",
-    "release": "release-it",
+    "release": "npx release-it --ci",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "config": {
