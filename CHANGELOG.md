@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.30](https://github.com/phun-ky/eslint-config/compare/1.0.29...1.0.30) (2026-01-06)
+
+### Tasks
+
+* 🤖 bump globals from 16.5.0 to 17.0.0 in the major-updates group ([80cd808](https://github.com/phun-ky/eslint-config/commit/80cd808ec0ddcd13967c9c32225bc724da0f49d4))
+
 ## [1.0.29](https://github.com/phun-ky/eslint-config/compare/1.0.28...1.0.29) (2026-01-06)
 
 ### Tasks
