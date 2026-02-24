@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.34](https://github.com/phun-ky/eslint-config/compare/1.0.33...1.0.34) (2026-02-24)
+
+### Tasks
+
+* 🤖 bump the minor-and-patch group across 1 directory with 5 updates ([c0574bf](https://github.com/phun-ky/eslint-config/commit/c0574bf116568b0836cadc32d3233e935fa69706))
+
 ## [1.0.33](https://github.com/phun-ky/eslint-config/compare/1.0.32...1.0.33) (2026-01-27)
 
 ### Tasks
