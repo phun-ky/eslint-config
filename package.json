@@ -32,12 +32,12 @@
     }
   },
   "dependencies": {
-    "@eslint/js": "^9.24.0",
-    "@eslint/markdown": "^7.0.0",
+    "@eslint/js": "^10.0.1",
+    "@eslint/markdown": "^8.0.1",
     "@stylistic/eslint-plugin": "^5.0.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-import-resolver-typescript": "^4.3.1",
-    "eslint-plugin-compat": "^6.0.2",
+    "eslint-plugin-compat": "^7.0.1",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.6",
     "globals": "^17.0.0",
@@ -45,9 +45,9 @@
     "typescript-eslint": "^8.29.0"
   },
   "devDependencies": {
-    "@release-it/conventional-changelog": "^10.0.0",
+    "@release-it/conventional-changelog": "^11.0.0",
     "git-cz": "^4.9.0",
-    "release-it": "^19.0.1"
+    "release-it": "^20.0.1"
   },
   "peerDependencies": {
     "eslint": ">= 9.2"
