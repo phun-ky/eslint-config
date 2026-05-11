@@ -1,5 +1,26 @@
 # Changelog
 
+## [2.0.0](https://github.com/phun-ky/eslint-config/compare/1.0.35...2.0.0) (2026-05-11)
+
+### ⚠ BREAKING CHANGES
+
+* 🧨 Import-related rules are now provided through `eslint-plugin-import-x` and use the `import-x/*` rule namespace instead of `import/*`. Consumers overriding `import/*` rules must update their overrides to `import-x/*`.
+* 🧨 `eslint-plugin-import` and `eslint-import-resolver-typescript` are no longer part of the runtime dependency set. Consumers relying on those packages through this config must install/configure them directly or migrate to `eslint-plugin-import-x`.
+* 🧨 The ESLint peer dependency now requires ESLint ^10.0.0.
+
+### Tasks
+
+* 🤖 bump the major-updates group across 1 directory with 5 updates ([fd4f462](https://github.com/phun-ky/eslint-config/commit/fd4f4627a8fbbe1396cb5d132486babc31081bd1))
+
+### Feature
+
+* 🎸 Migrate import rules to eslint-plugin-import-x ([e4923f0](https://github.com/phun-ky/eslint-config/commit/e4923f06f98279d790949606e5e0a92b7f1c4399))
+
+### Bug
+
+* 🐛 Make prettier a peer dependency only ([43c15db](https://github.com/phun-ky/eslint-config/commit/43c15db414c10dce7714a818cdd7695ba21de9ce))
+* 🐛 Move eslint-plugin-import-x to runtime dependencies ([b1931b7](https://github.com/phun-ky/eslint-config/commit/b1931b7064a36d4756b6f5f078d3f72ee3971e57))
+
 ## [1.0.35](https://github.com/phun-ky/eslint-config/compare/1.0.34...1.0.35) (2026-03-03)
 
 ### Tasks
