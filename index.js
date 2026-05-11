@@ -2,7 +2,10 @@ import eslint from '@eslint/js';
 import markdown from '@eslint/markdown';
 import stylistic from '@stylistic/eslint-plugin';
 import compat from 'eslint-plugin-compat';
-import importPlugin from 'eslint-plugin-import';
+import {
+  importX,
+  createTypeScriptImportResolver
+} from 'eslint-plugin-import-x';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import globals from 'globals';
 import { configs as tsConfigs } from 'typescript-eslint';
@@ -22,8 +25,8 @@ export default [
   { files: ['**/*.{js,mjs,cjs,ts,tsx,md}'] },
   ...markdown.configs.recommended,
   eslint.configs.recommended,
-  importPlugin.flatConfigs.recommended,
-  importPlugin.flatConfigs.typescript,
+  importX.flatConfigs.recommended,
+  importX.flatConfigs.typescript,
   compat.configs['flat/recommended'],
   ...tsConfigs.recommended,
   eslintPluginPrettierRecommended,
@@ -44,20 +47,23 @@ export default [
     },
 
     settings: {
-      'import/resolver': {
-        typescript: { alwaysTryTypes: true }
-      }
+      'import-x/resolver-next': [
+        createTypeScriptImportResolver({
+          alwaysTryTypes: true,
+          project: true
+        })
+      ]
     },
 
     rules: {
-      'import/no-named-as-default': 0,
-      'import/no-unused-modules': [
+      'import-x/no-named-as-default': 0,
+      'import-x/no-unused-modules': [
         1,
         {
           unusedExports: true
         }
       ],
-      'import/order': [
+      'import-x/order': [
         'error',
         {
           groups: [
