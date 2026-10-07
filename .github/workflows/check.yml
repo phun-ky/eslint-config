@@ -43,31 +43,31 @@ jobs:
   # This workflow contains a single job called "check"
   check:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0 # Checkout all branches and tags
       - name: Setup Node.js environment
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: '>=22.8.0'
+          node-version: 24
       - name: Install dependencies
         run: | # Install and link dependencies
-          npm i
+          npm ci
       - name: Lint
         run: npx eslint .
   notify:
     name: Notify failed check
     needs: check
     if: failure()
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: jayqi/failed-build-issue-action@v1.2
+      - uses: drivendataorg/failed-build-issue-action@v1
         with:
           github-token: ${{ secrets.GH_TOKEN }}
           label-name: 'problems: build failed'

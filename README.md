@@ -32,7 +32,7 @@
 npm i -D eslint eslint-config-phun-ky
 ```
 
-Requires ESLint >=9.20.0 and
+Requires Node.js ^22.13.0 or >=24, ESLint 10 and
 [flat config](https://eslint.org/docs/latest/use/configure/configuration-files).
 
 ## Usage
