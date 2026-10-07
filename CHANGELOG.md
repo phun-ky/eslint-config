@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.9](https://github.com/phun-ky/eslint-config/compare/2.0.8...2.0.9) (2026-10-07)
+
+### Bug
+
+* 🐛 Import TypeScript resolver from eslint-import-resolver-typescript ([2e237f1](https://github.com/phun-ky/eslint-config/commit/2e237f167418762374f3947c8ac6773bdf576e44))
+* 🐛 Remove import-x/no-unused-modules ([99a767d](https://github.com/phun-ky/eslint-config/commit/99a767d5f5ce5a71c17eeeda9a65b211338814df))
+
 ## [2.0.8](https://github.com/phun-ky/eslint-config/compare/2.0.7...2.0.8) (2026-08-10)
 
 ### Tasks
