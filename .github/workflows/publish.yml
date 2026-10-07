@@ -11,6 +11,7 @@ on:
       - '.github/**'
       - 'src/**'
       - 'api/**'
+      - 'index.js'
       - 'public/**'
       - 'package.json'
       - 'package-lock.json'
