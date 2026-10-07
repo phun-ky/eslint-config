@@ -54,12 +54,6 @@ export default [
 
     rules: {
       'import-x/no-named-as-default': 0,
-      'import-x/no-unused-modules': [
-        1,
-        {
-          unusedExports: true
-        }
-      ],
       'import-x/order': [
         'error',
         {
