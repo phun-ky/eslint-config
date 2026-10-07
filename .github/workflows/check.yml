@@ -59,6 +59,8 @@ jobs:
       - name: Install dependencies
         run: | # Install and link dependencies
           npm i
+      - name: Lint
+        run: npx eslint .
   notify:
     name: Notify failed check
     needs: check
