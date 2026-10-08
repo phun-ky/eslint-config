@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.0.10](https://github.com/phun-ky/eslint-config/compare/2.0.9...2.0.10) (2026-10-08)
+
+### Bug
+
+* 🐛 Stop prettier/prettier parsing Markdown as JavaScript ([e778bb6](https://github.com/phun-ky/eslint-config/commit/e778bb67fa44be376344f47941238a66149ae407))
+
 ## [2.0.9](https://github.com/phun-ky/eslint-config/compare/2.0.8...2.0.9) (2026-10-07)
 
 ### Bug
