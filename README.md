@@ -28,7 +28,7 @@
 
 ## Install
 
-```
+```sh
 npm i -D eslint eslint-config-phun-ky
 ```
 
@@ -59,8 +59,8 @@ export default defineConfig([
 
 By default, the config covers these files:
 
-```
-['**/*.{js,mjs,cjs,ts,tsx,md}']
+```js
+['**/*.{js,mjs,cjs,ts,tsx,md}'];
 ```
 
 ## Rules
