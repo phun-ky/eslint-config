@@ -26,7 +26,11 @@ export default [
   importX.flatConfigs.recommended,
   importX.flatConfigs.typescript,
   compat.configs['flat/recommended'],
-  ...tsConfigs.recommended,
+  // typescript-eslint/base sets its parser without `files`, which would also
+  // apply to .md files and make prettier/prettier parse Markdown as JS
+  ...tsConfigs.recommended.map((config) =>
+    config.files ? config : { ...config, files: ['**/*.{js,mjs,cjs,ts,tsx}'] }
+  ),
   eslintPluginPrettierRecommended,
   {
     plugins: {
