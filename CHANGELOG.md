@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.0.0](https://github.com/phun-ky/eslint-config/compare/2.0.11...3.0.0) (2026-11-10)
+
+### ⚠ BREAKING CHANGES
+
+* test files are no longer ignored. Running ESLint can
+  report new errors and warnings in them, so fix those, or ignore the
+  files in your own config with globalIgnores, when upgrading.
+
+### Feature
+
+* 🎸 Lint test files instead of ignoring them ([05fb8b9](https://github.com/phun-ky/eslint-config/commit/05fb8b9e9031991da8ed017b4a736cd2fc5dd8d8)), closes [#93](https://github.com/phun-ky/eslint-config/issues/93)
+
+### Bug
+
+* 🐛 Leave undefined names in TypeScript to the type checker ([7a0d764](https://github.com/phun-ky/eslint-config/commit/7a0d7642d1bb440f778ef592b8de56dde1b8e62b))
+
 ## [2.0.11](https://github.com/phun-ky/eslint-config/compare/2.0.10...2.0.11) (2026-11-10)
 
 ### Tasks
