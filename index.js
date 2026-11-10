@@ -97,7 +97,9 @@ export default [
           ignoreTemplateLiterals: true
         }
       ],
-      '@stylistic/quotes': [1, 'single'],
+      // avoidEscape matches Prettier, which uses double quotes for a string
+      // that contains a single quote; without it, eslint --fix loops
+      '@stylistic/quotes': [1, 'single', { avoidEscape: true }],
       '@stylistic/padded-blocks': ['error', 'never'],
       '@stylistic/comma-dangle': 'error',
       '@stylistic/padding-line-between-statements': [
