@@ -222,6 +222,15 @@ export default [
       '@stylistic/semi': 1
     }
   },
+  // typescript-eslint turns no-undef off for TypeScript, which reports
+  // undefined names itself, and the rule doesn't know type-only globals like
+  // FrameRequestCallback; the rules above turn it back on
+  {
+    files: ['**/*.{ts,tsx}'],
+    rules: {
+      'no-undef': 'off'
+    }
+  },
   // Tests are linted with the same rules, but they run in Node, not in a
   // browser: add Node's globals and skip the browser support checks
   {

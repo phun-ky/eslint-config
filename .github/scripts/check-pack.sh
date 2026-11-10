@@ -74,6 +74,11 @@ export interface Point {
 export const origin: Point = { x: 0, y: 0 };
 EOF
 
+# DOM types aren't globals ESLint knows; TypeScript checks these names
+cat > src/types.ts << 'EOF'
+export type Callback = FrameRequestCallback;
+EOF
+
 cat > docs/clean.md << 'EOF'
 # Fixture
 
@@ -160,6 +165,7 @@ const expected = {
   'eslint.config.js': [],
   'src/clean.js': [],
   'src/clean.ts': [],
+  'src/types.ts': [],
   'docs/clean.md': [],
   'src/problems.js': ['one-var', 'no-console'],
   'src/problems.ts': ['@typescript-eslint/no-explicit-any'],
