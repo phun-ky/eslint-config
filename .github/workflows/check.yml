@@ -39,6 +39,8 @@ jobs:
           npm ci
       - name: Lint
         run: npx eslint .
+      - name: Check the packed package
+        run: npm run check:pack
   notify:
     name: Notify failed check
     needs: check

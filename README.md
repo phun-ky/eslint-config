@@ -44,12 +44,11 @@ import customConfig from 'eslint-config-phun-ky';
 
 export default defineConfig([
   {
-    files: ['**/*.js'],
     extends: [customConfig],
 
     // anything from here will override customConfig
     rules: {
-      '@stylistic/no-extra-semi': '0'
+      '@stylistic/no-extra-semi': 'off'
     }
   }
 ]);
@@ -63,6 +62,9 @@ By default, the config covers these files:
 ['**/*.{js,mjs,cjs,ts,tsx,md}'];
 ```
 
+To lint fewer of them, add a `files` pattern next to `extends`. A pattern like
+`['**/*.js']` leaves out TypeScript and Markdown.
+
 ## Rules
 
 The custom rules extends/overrides these configs and plugins:
@@ -73,8 +75,8 @@ The custom rules extends/overrides these configs and plugins:
   {
     ...markdown.configs.recommended,
     eslint.configs.recommended,
-    importPlugin.flatConfigs.recommended,
-    importPlugin.flatConfigs.typescript,
+    importX.flatConfigs.recommended,
+    importX.flatConfigs.typescript,
     compat.configs['flat/recommended'],
     ...tsConfigs.recommended,
     eslintPluginPrettierRecommended,
@@ -91,28 +93,28 @@ The custom rules extends/overrides these configs and plugins:
 🔧 Automatically fixable with
 [`--fix` CLI option](https://eslint.org/docs/user-guide/command-line-interface#--fix).
 
-| Rule                                                                                                                        | Description                                                                           | 🔧  |
-| --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | --- |
-| [import/no-named-as-default](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-named-as-default.md) | Disallows named imports that may conflict with default exports.                       |     |
-| [import/order](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md)                             | Enforces a consistent order for import statements.                                    | 🔧  |
-| [no-alert](https://eslint.org/docs/latest/rules/no-alert)                                                                   | Disallows `alert`, `confirm`, and `prompt`.                                           |     |
-| [no-console](https://eslint.org/docs/latest/rules/no-console)                                                               | Disallows use of `console`.                                                           |     |
-| [no-undef](https://eslint.org/docs/latest/rules/no-undef)                                                                   | Disallows the use of undeclared variables unless mentioned in `/*global */` comments. |     |
-| [no-unreachable](https://eslint.org/docs/latest/rules/no-unreachable)                                                       | Disallows unreachable code after `return`, `throw`, `continue`, and `break`.          |     |
-| [prefer-const](https://eslint.org/docs/latest/rules/prefer-const)                                                           | Suggests using `const` declaration for variables that are never reassigned.           | 🔧  |
-| [one-var](https://eslint.org/docs/latest/rules/one-var)                                                                     | Enforces variables to be declared either together or separately in functions.         | 🔧  |
-| [@stylistic/array-bracket-newline](https://eslint.style/rules/array-bracket-newline)                                        | Enforces line breaks inside brackets.                                                 | 🔧  |
-| [@stylistic/max-len](https://eslint.style/rules/max-len)                                                                    | Enforces a maximum line length.                                                       |     |
-| [@stylistic/quotes](https://eslint.style/rules/quotes)                                                                      | Enforces the consistent use of quotes.                                                | 🔧  |
-| [@stylistic/padded-blocks](https://eslint.style/rules/padded-blocks)                                                        | Enforces or disallows padding within blocks.                                          | 🔧  |
-| [@stylistic/comma-dangle](https://eslint.style/rules/comma-dangle)                                                          | Requires or disallows trailing commas.                                                | 🔧  |
-| [@stylistic/padding-line-between-statements](https://eslint.style/rules/padding-line-between-statements)                    | Requires or disallows blank lines between statements.                                 | 🔧  |
-| [@stylistic/indent](https://eslint.style/rules/indent)                                                                      | Enforces consistent indentation.                                                      | 🔧  |
-| [@stylistic/object-curly-spacing](https://eslint.style/rules/object-curly-spacing)                                          | Enforces consistent spacing inside braces.                                            | 🔧  |
-| [@stylistic/no-extra-semi](https://eslint.style/rules/no-extra-semi)                                                        | Disallows unnecessary semicolons.                                                     | 🔧  |
-| [@stylistic/no-trailing-spaces](https://eslint.style/rules/no-trailing-spaces)                                              | Disallows trailing whitespace at the end of lines.                                    | 🔧  |
-| [@stylistic/semi](https://eslint.style/rules/semi)                                                                          | Enforces or disallows semicolons.                                                     | 🔧  |
-| [no-irregular-whitespace](https://eslint.org/docs/latest/rules/no-irregular-whitespace)                                     | Disallows irregular whitespace.                                                       | 🔧  |
+| Rule                                                                                                                          | Description                                                                           | 🔧  |
+| ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | --- |
+| [import-x/no-named-as-default](https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-named-as-default.md) | Disallows named imports that may conflict with default exports.                       |     |
+| [import-x/order](https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/order.md)                             | Enforces a consistent order for import statements.                                    | 🔧  |
+| [no-alert](https://eslint.org/docs/latest/rules/no-alert)                                                                     | Disallows `alert`, `confirm`, and `prompt`.                                           |     |
+| [no-console](https://eslint.org/docs/latest/rules/no-console)                                                                 | Disallows use of `console`.                                                           |     |
+| [no-undef](https://eslint.org/docs/latest/rules/no-undef)                                                                     | Disallows the use of undeclared variables unless mentioned in `/*global */` comments. |     |
+| [no-unreachable](https://eslint.org/docs/latest/rules/no-unreachable)                                                         | Disallows unreachable code after `return`, `throw`, `continue`, and `break`.          |     |
+| [prefer-const](https://eslint.org/docs/latest/rules/prefer-const)                                                             | Suggests using `const` declaration for variables that are never reassigned.           | 🔧  |
+| [one-var](https://eslint.org/docs/latest/rules/one-var)                                                                       | Enforces variables to be declared either together or separately in functions.         | 🔧  |
+| [@stylistic/array-bracket-newline](https://eslint.style/rules/array-bracket-newline)                                          | Enforces line breaks inside brackets.                                                 | 🔧  |
+| [@stylistic/max-len](https://eslint.style/rules/max-len)                                                                      | Enforces a maximum line length.                                                       |     |
+| [@stylistic/quotes](https://eslint.style/rules/quotes)                                                                        | Enforces the consistent use of quotes.                                                | 🔧  |
+| [@stylistic/padded-blocks](https://eslint.style/rules/padded-blocks)                                                          | Enforces or disallows padding within blocks.                                          | 🔧  |
+| [@stylistic/comma-dangle](https://eslint.style/rules/comma-dangle)                                                            | Requires or disallows trailing commas.                                                | 🔧  |
+| [@stylistic/padding-line-between-statements](https://eslint.style/rules/padding-line-between-statements)                      | Requires or disallows blank lines between statements.                                 | 🔧  |
+| [@stylistic/indent](https://eslint.style/rules/indent)                                                                        | Enforces consistent indentation.                                                      | 🔧  |
+| [@stylistic/object-curly-spacing](https://eslint.style/rules/object-curly-spacing)                                            | Enforces consistent spacing inside braces.                                            | 🔧  |
+| [@stylistic/no-extra-semi](https://eslint.style/rules/no-extra-semi)                                                          | Disallows unnecessary semicolons.                                                     | 🔧  |
+| [@stylistic/no-trailing-spaces](https://eslint.style/rules/no-trailing-spaces)                                                | Disallows trailing whitespace at the end of lines.                                    | 🔧  |
+| [@stylistic/semi](https://eslint.style/rules/semi)                                                                            | Enforces or disallows semicolons.                                                     | 🔧  |
+| [no-irregular-whitespace](https://eslint.org/docs/latest/rules/no-irregular-whitespace)                                       | Disallows irregular whitespace.                                                       | 🔧  |
 
 ## Contributing
 
