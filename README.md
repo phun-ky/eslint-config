@@ -19,6 +19,7 @@
   - [Install](#install)
   - [Usage](#usage)
     - [Files](#files)
+      - [Tests](#tests)
   - [Rules](#rules)
     - [Extended](#extended)
   - [Contributing](#contributing)
@@ -64,6 +65,19 @@ By default, the config covers these files:
 
 To lint fewer of them, add a `files` pattern next to `extends`. A pattern like
 `['**/*.js']` leaves out TypeScript and Markdown.
+
+#### Tests
+
+Tests are linted with the same rules as the rest of the code. Files in
+`__tests__`, `__mocks__` and `tests` directories, and files named `*.test.*` or
+`*.spec.*`, run in Node, so for them the config:
+
+- adds Node's globals, like `process` and `Buffer`,
+- turns off `compat/compat`, which checks browser support,
+- turns off `import-x/no-named-as-default-member`, since test libraries are
+  often used through their default export, like `fc.assert()` in fast-check.
+
+Before 3.0.0, these files were ignored.
 
 ## Rules
 

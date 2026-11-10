@@ -8,17 +8,17 @@ import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 import globals from 'globals';
 import { configs as tsConfigs } from 'typescript-eslint';
 
+const code = '{js,mjs,cjs,ts,tsx}';
+const testFiles = [
+  `**/__tests__/**/*.${code}`,
+  `**/__mocks__/**/*.${code}`,
+  `tests/**/*.${code}`,
+  `**/*.{test,spec}.${code}`
+];
+
 export default [
   {
-    ignores: [
-      '**/dts',
-      '**/node_modules',
-      '**/coverage',
-      '**/dist',
-      '**/__tests__',
-      'tests/**',
-      '**/__mocks__'
-    ]
+    ignores: ['**/dts', '**/node_modules', '**/coverage', '**/dist']
   },
   { files: ['**/*.{js,mjs,cjs,ts,tsx,md}'] },
   ...markdown.configs.recommended,
@@ -220,6 +220,20 @@ export default [
         }
       ],
       '@stylistic/semi': 1
+    }
+  },
+  // Tests are linted with the same rules, but they run in Node, not in a
+  // browser: add Node's globals and skip the browser support checks
+  {
+    files: testFiles,
+    languageOptions: {
+      globals: globals.node
+    },
+    rules: {
+      'compat/compat': 'off',
+      // Test libraries are often used through their default export, as in
+      // fast-check's `fc.assert(fc.property(...))` or `sinon.stub()`
+      'import-x/no-named-as-default-member': 'off'
     }
   },
   {

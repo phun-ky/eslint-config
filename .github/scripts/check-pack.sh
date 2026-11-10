@@ -6,6 +6,7 @@
 # project's eslint.config.js, and lints JS, TS and Markdown fixtures:
 #
 # - clean fixtures (and the README example itself) have no problems,
+# - test files are linted, with Node globals,
 # - problem fixtures report the expected rule ids,
 # - no file has a parsing error or is ignored,
 # - ESLint doesn't crash on the config, and --fix finds no circular fixes.
@@ -94,6 +95,46 @@ cat > docs/problems.md << 'EOF'
 An [empty link]().
 EOF
 
+# Tests are linted, not ignored, and know Node's globals (#93)
+mkdir -p src/__tests__
+
+cat > src/__tests__/clean.test.ts << 'EOF'
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
+
+describe('clean', () => {
+  it('knows Node globals', () => {
+    assert.equal(typeof process.env, 'object');
+  });
+});
+EOF
+
+cat > src/clean.test.js << 'EOF'
+import assert from 'node:assert/strict';
+import { test } from 'node:test';
+
+test('knows Node globals', () => {
+  assert.ok(Buffer.from('a'));
+});
+EOF
+
+cat > src/__tests__/problems.test.ts << 'EOF'
+var a = 1, b = 2;
+
+export { a, b };
+EOF
+
+cat > src/__tests__/notes.md << 'EOF'
+# Notes
+
+Markdown next to tests is linted as Markdown.
+EOF
+
+# Outside tests, Node globals stay unknown
+cat > src/node-only.js << 'EOF'
+export const env = process.env;
+EOF
+
 echo "Linting"
 status=0
 npx eslint --format json . > results.json 2> eslint.stderr || status=$?
@@ -122,7 +163,12 @@ const expected = {
   'docs/clean.md': [],
   'src/problems.js': ['one-var', 'no-console'],
   'src/problems.ts': ['@typescript-eslint/no-explicit-any'],
-  'docs/problems.md': ['markdown/no-empty-links']
+  'docs/problems.md': ['markdown/no-empty-links'],
+  'src/__tests__/clean.test.ts': [],
+  'src/clean.test.js': [],
+  'src/__tests__/notes.md': [],
+  'src/__tests__/problems.test.ts': ['one-var'],
+  'src/node-only.js': ['no-undef']
 };
 
 const failures = [];
