@@ -22,6 +22,7 @@
     "index.js"
   ],
   "scripts": {
+    "check:pack": ".github/scripts/check-pack.sh",
     "commit": "npx git-cz",
     "prepare": "git config core.hooksPath .githooks || true",
     "release": "npx release-it --ci",
