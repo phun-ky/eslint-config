@@ -23,6 +23,7 @@
   ],
   "scripts": {
     "commit": "npx git-cz",
+    "prepare": "git config core.hooksPath .githooks || true",
     "release": "npx release-it --ci",
     "release:dry-run": ".github/scripts/should-release.sh && release-it --ci --dry-run --github.release=false --no-git.requireCleanWorkingDir --no-git.requireUpstream",
     "test": "echo \"Error: no test specified\" && exit 1"
