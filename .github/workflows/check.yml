@@ -4,36 +4,14 @@ name: Checks
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
+  # Triggers the workflow on push or pull request events but only for the "main" branch.
+  # No path filters: `check` is a required status check, so it must run on every
+  # PR, or a PR touching only unlisted files could never merge.
   push:
     branches: ['main']
-    paths:
-      - '.github/**'
-      - 'src/**'
-      - 'index.js'
-      - 'index.ts'
-      - 'index.cjs'
-      - 'index.mjs'
-      - 'package.json'
-      - 'package-lock.json'
-      - 'rollup.config.js'
-      - 'tsconfig.json'
-      - '.npmrc'
   pull_request:
     branches: ['main']
-    types: [opened, synchronize] # Workflow triggering events
-    paths:
-      - '.github/**'
-      - 'src/**'
-      - 'index.js'
-      - 'index.ts'
-      - 'index.cjs'
-      - 'index.mjs'
-      - 'package.json'
-      - 'package-lock.json'
-      - 'rollup.config.js'
-      - 'tsconfig.json'
-      - '.npmrc'
+    types: [opened, synchronize, reopened] # Workflow triggering events
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
