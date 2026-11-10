@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.0.11](https://github.com/phun-ky/eslint-config/compare/2.0.10...2.0.11) (2026-11-10)
+
+### Tasks
+
+* 🤖 bump eslint-plugin-import-x ([8916742](https://github.com/phun-ky/eslint-config/commit/8916742684ec37e094530d284aabc758bac89432))
+* 🤖 bump pozil/auto-assign-issue ([4663ea3](https://github.com/phun-ky/eslint-config/commit/4663ea3c7f8c9800c14b37b442472372266bc550))
+* 🤖 bump the minor-and-patch group across 1 directory with 4 updates ([3190503](https://github.com/phun-ky/eslint-config/commit/3190503a36e17b758823a1e0e0ec4f48760bde58))
+* 🤖 bump the minor-and-patch group across 1 directory with 6 updates ([2b069b9](https://github.com/phun-ky/eslint-config/commit/2b069b9140161010984841a7094b26b4f50cd12c))
+
+### Bug
+
+* 🐛 Let @stylistic/quotes accept double quotes that avoid escaping ([8dd5188](https://github.com/phun-ky/eslint-config/commit/8dd51884d864c35f1b5c6d01f55d697ca8da8f45)), closes [#92](https://github.com/phun-ky/eslint-config/issues/92)
+* 🐛 Make the README usage example work with ESLint 10 ([c3fc580](https://github.com/phun-ky/eslint-config/commit/c3fc5809b96e1a0636f0c8591d242174f82a1f0f)), closes [#89](https://github.com/phun-ky/eslint-config/issues/89)
+
 ## [2.0.10](https://github.com/phun-ky/eslint-config/compare/2.0.9...2.0.10) (2026-10-08)
 
 ### Bug
