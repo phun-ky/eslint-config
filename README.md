@@ -3,6 +3,8 @@
 > An opinionated eslint-config that someone else could also use, with more than
 > 450 helpful ESLint rules :)
 
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/16758/badge)](https://www.bestpractices.dev/projects/16758)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/phun-ky/eslint-config/badge)](https://scorecard.dev/viewer/?uri=github.com/phun-ky/eslint-config)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-green.svg)](http://makeapullrequest.com)
 [![SemVer 2.0](https://img.shields.io/badge/SemVer-2.0-green.svg)](http://semver.org/spec/v2.0.0.html)

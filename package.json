@@ -22,6 +22,8 @@
     "index.js"
   ],
   "scripts": {
+    "bestpractices:url": "node .github/scripts/bestpractices-url.mjs",
+    "check:bestpractices": "node .github/scripts/check-bestpractices.mjs",
     "check:pack": ".github/scripts/check-pack.sh",
     "commit": "npx git-cz",
     "format:check": "prettier --check '**/*.{json,yml,yaml}'",
