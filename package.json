@@ -24,6 +24,8 @@
   "scripts": {
     "check:pack": ".github/scripts/check-pack.sh",
     "commit": "npx git-cz",
+    "format:check": "prettier --check '**/*.{json,yml,yaml}'",
+    "lint": "eslint .",
     "prepare": "git config core.hooksPath .githooks || true",
     "release": "npx release-it --ci",
     "release:dry-run": ".github/scripts/should-release.sh && release-it --ci --dry-run --github.release=false --no-git.requireCleanWorkingDir --no-git.requireUpstream",
