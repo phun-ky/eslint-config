@@ -31,6 +31,8 @@ jobs:
         run: npm run format:check
       - name: Check the packed package
         run: npm run check:pack
+      - name: Check the SBOM builds # Publish attaches it after npm publish, too late to fail there
+        run: node .github/scripts/sbom.mjs > /dev/null
 
   engines-floor:
     runs-on: ubuntu-24.04
