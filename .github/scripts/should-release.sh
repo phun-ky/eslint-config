@@ -11,7 +11,7 @@
 # $GITHUB_OUTPUT.
 set -euo pipefail
 
-published_files=(index.js package.json README.md)
+published_files=(index.js package.json README.md LICENSE)
 
 decide() {
   echo "$2"

@@ -14,23 +14,54 @@ permissions:
   contents: read
 
 jobs:
-  check:
+  lint-and-pack:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          fetch-depth: 0 # Checkout all branches and tags
       - name: Setup Node.js environment
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 24
       - name: Install dependencies
         run: npm ci
-      - name: Lint
-        run: npx eslint .
+      - name: Lint # Code and Markdown, with Prettier
+        run: npm run lint
+      - name: Check the format of JSON and YAML files
+        run: npm run format:check
       - name: Check the packed package
         run: npm run check:pack
+      - name: Check the SBOM builds # Publish attaches it after npm publish, too late to fail there
+        run: node .github/scripts/sbom.mjs > /dev/null
+
+  engines-floor:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Setup Node.js 22.13.0, the engines floor
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22.13.0
+      # No npm ci: check:pack packs the repository and installs the tarball
+      # in an empty project, as a consumer on this Node would
+      - name: Check the packed package on Node 22.13.0
+        run: npm run check:pack
+
+  # The one required check: fails when any job above failed or was skipped
+  check:
+    needs: [lint-and-pack, engines-floor]
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-24.04
+    steps:
+      - name: All checks passed
+        run: |
+          echo "lint-and-pack: $LINT_AND_PACK, engines-floor: $ENGINES_FLOOR"
+          [ "$LINT_AND_PACK" = success ] && [ "$ENGINES_FLOOR" = success ]
+        env:
+          LINT_AND_PACK: ${{ needs.lint-and-pack.result }}
+          ENGINES_FLOOR: ${{ needs.engines-floor.result }}
+
   notify:
     name: Notify failed check
     needs: check

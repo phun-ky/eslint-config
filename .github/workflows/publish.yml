@@ -13,6 +13,7 @@ on:
       - 'LICENSE'
       - '.release-it.json'
       - '.github/workflows/publish.yml'
+      - '.github/scripts/**'
   workflow_dispatch:
 
 permissions:
@@ -49,7 +50,10 @@ jobs:
       - name: Check for changes to release
         id: guard
         run: .github/scripts/should-release.sh
-      - name: Release
+      - name: Audit runtime dependencies # No release with a known high or critical vulnerability
+        if: steps.guard.outputs.release == 'true'
+        run: npm audit --omit=dev --audit-level=high
+      - name: Release # Bumps, runs check:pack, publishes, commits, tags, creates the GitHub release
         if: steps.guard.outputs.release == 'true'
         run: |
           git config user.name "$ACTOR"
@@ -58,6 +62,20 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           ACTOR: ${{ github.actor }} # via env, never interpolated into the script
+      - name: Attach SBOM to the release # CycloneDX, runtime dependencies only; nothing is bundled
+        if: steps.guard.outputs.release == 'true'
+        run: |
+          # The release commit is tagged; without a tag, release-it found no
+          # version to release (for example a fix and its own revert)
+          if ! version=$(git describe --tags --exact-match HEAD 2> /dev/null); then
+            echo "No release was made, so no SBOM to attach"
+            exit 0
+          fi
+          file="$RUNNER_TEMP/eslint-config-phun-ky-$version.cdx.json"
+          node .github/scripts/sbom.mjs > "$file"
+          gh release upload "$version" "$file" --clobber
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # contents: write is enough to upload an asset
   notify:
     name: Notify failed build
     needs: publish
