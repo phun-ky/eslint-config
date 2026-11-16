@@ -1,65 +1,60 @@
-# Contributing to **eslint-config-phun-ky**
+# Contributing to eslint-config-phun-ky
 
 First off, thanks for taking the time to contribute! ❤️
 
 All types of contributions are encouraged and valued. See the
 [Table of Contents](#table-of-contents) for different ways to help and details
-about how this project handles them. Please make sure to read the relevant
-section before making your contribution. It will make it a lot easier for us
-maintainers and smooth out the experience for all involved. The community looks
-forward to your contributions. 🎉
+about how this project handles them. Please read the relevant section before
+making your contribution. It makes it a lot easier for the maintainer and
+smooths out the experience for everyone involved.
 
-> And if you like the project, but just don't have time to contribute, that's
-> fine. There are other easy ways to support the project and show your
-> appreciation, which we would also be very happy about:
+> And if you like the project, but don't have time to contribute, that's fine.
+> There are other easy ways to support the project and show your appreciation:
 >
 > - Star the project
-> - Tweet about it
-> - Refer this project in your project's readme
-> - Mention the project at local meetups and tell your friends/colleagues
+> - Mention it in your project's readme
+> - Tell your friends and colleagues about it
 
 ## Table of Contents
 
-- [Contributing to **eslint-config-phun-ky**](#contributing-to-eslint-config-phun-ky)
-  - [Table of Contents](#table-of-contents)
-  - [Code of Conduct](#code-of-conduct)
-  - [I Have a Question](#i-have-a-question)
-  - [I Want To Contribute](#i-want-to-contribute)
-    - [Reporting Bugs](#reporting-bugs)
-      - [Before Submitting a Bug Report](#before-submitting-a-bug-report)
-      - [How Do I Submit a Good Bug Report?](#how-do-i-submit-a-good-bug-report)
-    - [Suggesting Enhancements](#suggesting-enhancements)
-      - [Before Submitting an Enhancement](#before-submitting-an-enhancement)
-      - [How Do I Submit a Good Enhancement Suggestion?](#how-do-i-submit-a-good-enhancement-suggestion)
-  - [Attribution](#attribution)
+- [Code of Conduct](#code-of-conduct)
+- [I Have a Question](#i-have-a-question)
+- [I Want To Contribute](#i-want-to-contribute)
+  - [Reporting Bugs](#reporting-bugs)
+  - [Suggesting Enhancements](#suggesting-enhancements)
+  - [Contributing Code](#contributing-code)
+    - [Architecture](#architecture)
+    - [Development](#development)
+    - [Coding Style](#coding-style)
+    - [Tests](#tests)
+    - [Developer Certificate of Origin](#developer-certificate-of-origin)
+    - [Commits and Pull Requests](#commits-and-pull-requests)
+    - [Releases](#releases)
+- [Attribution](#attribution)
 
 ## Code of Conduct
 
 This project and everyone participating in it is governed by the
-[**eslint-config-phun-ky** Code of Conduct](https://github.com/phun-ky/eslint-config/blob/master/CODE_OF_CONDUCT.md).
+[eslint-config-phun-ky Code of Conduct](https://github.com/phun-ky/eslint-config/blob/main/CODE_OF_CONDUCT.md).
 By participating, you are expected to uphold this code. Please report
 unacceptable behaviour to <code-of-conduct@phun-ky.net>.
 
 ## I Have a Question
 
-> If you want to ask a question, we assume that you have read the available
-> [Documentation](https://github.com/phun-ky/eslint-config).
+> If you want to ask a question, we assume that you have read the
+> [README](https://github.com/phun-ky/eslint-config#readme).
 
-Before you ask a question, it is best to search for existing
-[Issues](https://github.com/phun-ky/eslint-config/issues) that might help you.
-In case you have found a suitable issue and still need clarification, you can
-write your question in this issue. It is also advisable to search the internet
-for answers first.
+Before you ask a question, search the existing
+[issues](https://github.com/phun-ky/eslint-config/issues) that might help you.
+If you find a suitable issue and still need clarification, write your question
+in that issue.
 
-If you then still feel the need to ask a question and need clarification, we
-recommend the following:
+If you still need to ask a question:
 
-- Open an [Issue](https://github.com/phun-ky/eslint-config/issues/new).
+- Open an [issue](https://github.com/phun-ky/eslint-config/issues/new).
 - Provide as much context as you can about what you're running into.
-- Provide project and platform versions (nodejs, npm, etc), depending on what
-  seems relevant.
-
-We will then take care of the issue as soon as possible.
+- Provide the versions of this package, ESLint, Prettier, Node.js and npm, and
+  your `eslint.config.js`.
 
 ## I Want To Contribute
 
@@ -67,116 +62,182 @@ We will then take care of the issue as soon as possible.
 >
 > When contributing to this project, you must agree that you have authored 100%
 > of the content, that you have the necessary rights to the content and that the
-> content you contribute may be provided under the project license.
+> content you contribute may be provided under the project licence. You confirm
+> this on every commit by signing it off under the
+> [Developer Certificate of Origin](#developer-certificate-of-origin).
 
 ### Reporting Bugs
 
 #### Before Submitting a Bug Report
 
 A good bug report shouldn't leave others needing to chase you up for more
-information. Therefore, we ask you to investigate carefully, collect information
-and describe the issue in detail in your report. Please complete the following
-steps in advance to help us fix any potential bug as fast as possible.
+information. Please:
 
 - Make sure that you are using the latest version.
-- Determine if your bug is really a bug and not an error on your side e.g. using
-  incompatible environment components/versions (Make sure that you have read the
-  [documentation](https://github.com/phun-ky/eslint-config). If you are looking
-  for support, you might want to check [this section](#i-have-a-question)).
-- To see if other users have experienced (and potentially already solved) the
-  same issue you are having, check if there is not already a bug report existing
-  for your bug or error in the
-  [bug tracker](https://github.com/phun-ky/eslint-configissues?q=label%3Abug).
-- Also make sure to search the internet (including Stack Overflow) to see if
-  users outside of the GitHub community have discussed the issue.
+- Check that it's really a bug and not an error on your side, for example an
+  unsupported ESLint or Node.js version. Read the
+  [README](https://github.com/phun-ky/eslint-config#readme) first.
+- Search the
+  [bug tracker](https://github.com/phun-ky/eslint-config/issues?q=label%3A%22problems%3A+%F0%9F%90%9B+bug%22)
+  to see if the bug has already been reported.
 - Collect information about the bug:
-  - Stack trace (Traceback)
-  - OS, Platform and Version (Windows, Linux, macOS, x86, ARM)
-  - Version of the interpreter, compiler, SDK, runtime environment, package
-    manager, depending on what seems relevant.
-  - Possibly your input and the output
-  - Can you reliably reproduce the issue? And can you also reproduce it with
-    older versions?
+  - the error message, or the rule and the problem it reports
+  - the versions of this package, ESLint, Prettier, Node.js and npm
+  - your `eslint.config.js` and Prettier configuration
+  - the smallest file that shows the problem
+  - whether you can reproduce it reliably, and with older versions
 
 #### How Do I Submit a Good Bug Report?
 
-> You must never report security related issues, vulnerabilities or bugs
-> including sensitive information to the issue tracker, or elsewhere in public.
-> Instead sensitive bugs must be sent by email to
-> <eslint-config-phun-ky@phun-ky.net>.
+> Never report security issues, vulnerabilities or bugs that include sensitive
+> information in the issue tracker or elsewhere in public. Report them privately
+> as described in the [security policy](SECURITY.md#reporting-a-vulnerability).
 
-<!-- You may add a PGP key to allow the messages to be sent encrypted as well. -->
+Bugs are tracked as GitHub issues. If you run into a problem:
 
-We use GitHub issues to track bugs and errors. If you run into an issue with the
-project:
+- Open an [issue](https://github.com/phun-ky/eslint-config/issues/new).
+- Explain the behaviour you expected and the actual behaviour.
+- Describe the steps to reproduce it, ideally a file and the `npx eslint`
+  command that shows the problem.
+- Add the information you collected above.
 
-- Open an [Issue](https://github.com/phun-ky/eslint-config/issues/new). (Since
-  we can't be sure at this point whether it is a bug or not, we ask you not to
-  talk about a bug yet and not to label the issue.)
-- Explain the behaviour you would expect and the actual behaviour.
-- Please provide as much context as possible and describe the _reproduction
-  steps_ that someone else can follow to recreate the issue on their own. This
-  usually includes your code. For good bug reports you should isolate the
-  problem and create a reduced test case.
-- Provide the information you collected in the previous section.
-
-Once it's filed:
-
-- The project team will label the issue accordingly.
-- A team member will try to reproduce the issue with your provided steps. If
-  there are no reproduction steps or no obvious way to reproduce the issue, the
-  team will ask you for those steps and mark the issue as `pending: need repro`.
-  Bugs with the `pending: need repro` tag will not be addressed until they are
-  reproduced.
-- If the team is able to reproduce the issue, it will be marked `🐛 needs fix`,
-  as well as possibly other tags (such as `problems: critical`), and the issue
-  will be left to be implemented by someone.
+Once it's filed, the maintainer labels it and tries to reproduce it. Without a
+way to reproduce it, the issue is marked `pending: need repro` until there is
+one.
 
 ### Suggesting Enhancements
 
-This section guides you through submitting an enhancement suggestion for
-**eslint-config-phun-ky**, **including completely new features and minor
-improvements to existing functionality**. Following these guidelines will help
-maintainers and the community to understand your suggestion and find related
-suggestions.
-
-#### Before Submitting an Enhancement
-
-- Make sure that you are using the latest version.
-- Read the [documentation](https://github.com/phun-ky/eslint-config) carefully
-  and find out if the functionality is already covered, maybe by an individual
-  configuration.
-- Perform a [search](https://github.com/phun-ky/eslint-config/issues) to see if
-  the enhancement has already been suggested. If it has, add a comment to the
-  existing issue instead of opening a new one.
-- Find out whether your idea fits with the scope and aims of the project. It's
-  up to you to make a strong case to convince the project's developers of the
-  merits of this feature. Keep in mind that we want features that will be useful
-  to the majority of our users and not just a small subset. If you're just
-  targeting a minority of users, consider writing an add-on/plugin library.
-
-#### How Do I Submit a Good Enhancement Suggestion?
-
-Enhancement suggestions are tracked as
+Enhancements, from new rules to small improvements, are tracked as
 [GitHub issues](https://github.com/phun-ky/eslint-config/issues).
 
-- Use a **clear and descriptive title** for the issue to identify the
-  suggestion.
-- Provide a **step-by-step description of the suggested enhancement** in as many
-  details as possible.
-- **Describe the current behaviour** and **explain which behaviour you expected
-  to see instead** and why. At this point you can also tell which alternatives
-  do not work for you.
-- You may want to **include screenshots and animated GIFs** which help you
-  demonstrate the steps or point out the part which the suggestion is related
-  to. You can use [this tool](https://www.cockos.com/licecap/) to record GIFs on
-  macOS and Windows, and [this tool](https://github.com/colinkeenan/silentcast)
-  or [this tool](https://github.com/GNOME/byzanz) on Linux.
-- **Explain why this enhancement would be useful** to most
-  **eslint-config-phun-ky** users. You may also want to point out the other
-  projects that solved it better and which could serve as inspiration.
+Before suggesting one:
+
+- Make sure that you are using the latest version, and read the
+  [README](https://github.com/phun-ky/eslint-config#readme) to see if it's
+  already possible.
+- [Search](https://github.com/phun-ky/eslint-config/issues) for an existing
+  suggestion, and add to it instead of opening a new one.
+- Check that it fits the [roadmap](ROADMAP.md), including what is not planned.
+
+A good suggestion has a clear title, describes the current behaviour and the
+behaviour you'd like instead, and explains why it would be useful to most users.
+
+### Contributing Code
+
+Larger changes, such as a new rule or plugin, are best discussed in an issue
+first, so the work fits the [roadmap](ROADMAP.md).
+
+#### Architecture
+
+There is no build: the package is published as written.
+
+- **`index.js`** exports the configuration: an array of ESLint flat config
+  objects built from the plugins in `dependencies`, followed by this project's
+  own rules and the blocks for tests and Markdown.
+- **`eslint.config.js`** lints this repository with `index.js` itself.
+- **`.github/scripts/check-pack.sh`** packs the package, installs it in an empty
+  project and lints fixtures with it; see [Tests](#tests).
+- **`.github/scripts/should-release.sh`** decides whether a merge releases, and
+  **`.github/scripts/sbom.mjs`** writes the software bill of materials for each
+  release; see [Releases](#releases).
+
+#### Development
+
+You need Node.js 24 and npm 11.
+
+```shell
+npm ci
+npm run lint
+npm run check:pack
+```
+
+| Command                       | What it does                                                                                          |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `npm run lint`                | Lints every file, Markdown included, with this configuration and Prettier                             |
+| `npm run format:check`        | Checks the format of the JSON and YAML files with Prettier                                            |
+| `npm run check:pack`          | Packs the package, installs it in an empty project and lints the fixtures with it                     |
+| `npm run check:bestpractices` | Checks the OpenSSF Best Practices answers and the links in them                                       |
+| `npm run release:dry-run`     | Shows whether merging would release, and the planned version and changelog                            |
+| `npm run commit`              | Helps write a conventional commit message                                                             |
+| `npm run bestpractices:url`   | Prints bestpractices.dev links that propose the answers in `.bestpractices.json` (for the maintainer) |
+
+`npm test` is a placeholder that fails; the tests run with `npm run check:pack`.
+
+#### Coding Style
+
+Code follows this project's own ESLint configuration and
+[Prettier](https://prettier.io/) formatting. A contribution must pass
+`npm run lint` and `npm run format:check` with no errors. Both run in CI on
+every pull request, and a pull request that fails them can't be merged.
+
+#### Tests
+
+`npm run check:pack` lints fixtures with the packed package, as a consumer would
+get it, and checks the rule ids each fixture reports, that no file is ignored or
+fails to parse, and that `eslint --fix` doesn't loop. It runs in CI on Node 24
+and on Node 22.13.0, the oldest version `engines` allows.
+
+- **A rule change must come with a fixture** in `.github/scripts/check-pack.sh`:
+  a file that the changed rule reports, or one it no longer reports.
+- **Bug fixes must come with a fixture** that fails without the fix.
+- **Packaging changes** are tested by `npm run check:pack` itself.
+
+#### Developer Certificate of Origin
+
+Every commit must be signed off under the
+[Developer Certificate of Origin](https://developercertificate.org/) (DCO): a
+statement that you wrote the change, or otherwise have the right to submit it
+under the project's licence. You agree to it by adding a `Signed-off-by` line
+with your name and email to the commit message:
+
+```text
+Signed-off-by: Your Name <you@example.com>
+```
+
+- **Per commit:** `git commit -s` adds the line for you.
+- **Always:** `npm ci` sets `core.hooksPath` to `.githooks`, and the hook in
+  `.githooks/prepare-commit-msg` adds the line to every commit, including those
+  made by `npm run commit` or your editor.
+- **Forgot?** Sign off every commit on your branch and push again:
+  `git rebase --signoff main` then `git push --force-with-lease`.
+
+The DCO check on every pull request fails if a commit isn't signed off.
+
+#### Commits and Pull Requests
+
+- Commits follow [Conventional Commits](https://www.conventionalcommits.org/)
+  (`feat:`, `fix:`, `docs:`, ...). `npm run commit` helps write them. Releases
+  and the changelog are generated from them (see [Releases](#releases)), so pick
+  the type that matches the change. A breaking change, such as a rule that
+  reports more problems, needs a `type!:` and a `BREAKING CHANGE:` footer that
+  says what to change.
+- Pull requests are merged with a merge commit, so each commit message, not the
+  pull request title, decides the release. A pull request that mixes a change to
+  the configuration with tooling is split into a `fix:` or `feat:` commit and a
+  `chore:` or `ci:` commit.
+- Open a pull request against `main`. The Checks workflow lints, checks the
+  format and runs `check:pack` on both Node versions; dependency review, CodeQL
+  and the DCO check also run. All of them must pass.
+
+#### Releases
+
+The maintainer merges pull requests, and releases follow automatically from
+GitHub Actions:
+
+1. When a merged pull request changes what gets published, the publish workflow
+   checks whether there is anything to release: a `feat`, `fix`, `perf` or
+   `revert` commit, or a breaking change, that touches `index.js`,
+   `package.json`, `README.md` or `LICENSE`. Other changes wait for the next
+   release.
+2. If so, it runs `npm audit` on the runtime dependencies, and release-it picks
+   the version from the commits, updates the changelog, runs `check:pack` on the
+   bumped package, and publishes it to npm with signed provenance.
+3. The release commit and tag go to `main`, and a GitHub release is created with
+   a software bill of materials attached.
+
+`npm run release:dry-run` shows what a merge would release.
 
 ## Attribution
 
-This guide is based on the **contributing-gen**.
-[Make your own](https://github.com/bttger/contributing-gen)!
+This guide is based on
+[contributing-gen](https://github.com/bttger/contributing-gen).
