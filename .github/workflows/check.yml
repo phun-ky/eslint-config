@@ -1,42 +1,32 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Checks
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch.
   # No path filters: `check` is a required status check, so it must run on every
   # PR, or a PR touching only unlisted files could never merge.
   push:
     branches: ['main']
   pull_request:
     branches: ['main']
-    types: [opened, synchronize, reopened] # Workflow triggering events
-
-  # Allows you to run this workflow manually from the Actions tab
+    types: [opened, synchronize, reopened]
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  # This workflow contains a single job called "check"
-  check:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-24.04
+permissions:
+  contents: read
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
+jobs:
+  check:
+    runs-on: ubuntu-24.04
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0 # Checkout all branches and tags
       - name: Setup Node.js environment
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 24
       - name: Install dependencies
-        run: | # Install and link dependencies
-          npm ci
+        run: npm ci
       - name: Lint
         run: npx eslint .
       - name: Check the packed package
@@ -46,8 +36,12 @@ jobs:
     needs: check
     if: failure()
     runs-on: ubuntu-24.04
+    # GITHUB_TOKEN, not GH_TOKEN: secrets are empty on Dependabot pull requests
+    permissions:
+      issues: write
     steps:
-      - uses: drivendataorg/failed-build-issue-action@v1
+      - uses: drivendataorg/failed-build-issue-action@940568ce50eeef3f31a920614cefcc6102d2f930 # v1.3.0
         with:
-          github-token: ${{ secrets.GH_TOKEN }}
-          label-name: 'problems: build failed'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          label-name: 'problems: 💔 build failed'
+          create-label: false
