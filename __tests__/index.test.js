@@ -1,6 +1,7 @@
 import { ESLint } from 'eslint';
 
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { describe, it } from 'node:test';
 
 import config from '../index.js';
@@ -144,5 +145,35 @@ describe('test files', () => {
       0
     );
     assert.equal(await severityFor('compat/compat', 'src/a.js'), 2);
+  });
+});
+
+describe('the README rule table (#116)', () => {
+  // The block in index.js with the project's own rules
+  const own = config.find((block) => block.plugins?.['@stylistic']).rules;
+  const rows = [
+    ...readFileSync(new URL('../README.md', import.meta.url), 'utf8').matchAll(
+      /^\| \[([^\]]+)\]\([^)]+\) +\| ([^|]+)\|/gm
+    )
+  ].map(([, rule, description]) => ({ rule, description: description.trim() }));
+
+  it('lists exactly the rules index.js sets', () => {
+    assert.deepEqual(
+      rows.map(({ rule }) => rule).sort(),
+      Object.keys(own).sort()
+    );
+  });
+
+  it('describes every rule turned off as off', () => {
+    for (const { rule, description } of rows) {
+      const setting = [own[rule]].flat()[0];
+      const off = setting === 0 || setting === 'off';
+
+      assert.equal(
+        description.startsWith('Off'),
+        off,
+        `${rule}: ${description}`
+      );
+    }
   });
 });
