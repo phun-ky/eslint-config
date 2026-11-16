@@ -1,5 +1,6 @@
 // eslint.config.js
 import { defineConfig, globalIgnores } from 'eslint/config';
+import globals from 'globals';
 
 import config from './index.js';
 
@@ -8,5 +9,17 @@ export default defineConfig([
   globalIgnores(['CHANGELOG.md']),
   {
     extends: [config]
+  },
+  {
+    files: ['.github/scripts/**/*.mjs'],
+    languageOptions: {
+      globals: globals.node
+    },
+    rules: {
+      // Command-line scripts run in Node, not a browser, and report to the
+      // terminal
+      'compat/compat': 'off',
+      'no-console': 'off'
+    }
   }
 ]);
