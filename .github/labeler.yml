@@ -1,75 +1,51 @@
 'section: workflows':
-  - any:
-      - changed-files:
-          - any-glob-to-any-file:
-              - .github/workflows/**
+  - changed-files:
+      - any-glob-to-any-file:
+          - '.github/workflows/**'
+          - '.github/scripts/**'
 'section: repo':
-  - any:
-      - changed-files:
-          - any-glob-to-any-file:
-              - '*'
+  - changed-files:
+      - any-glob-to-any-file:
+          - '*'
 'experience: developer':
-  - any:
-      - changed-files:
-          - any-glob-to-any-file:
-              - '.editorconfig'
-              - '.eslintignore'
-              - 'eslint.config.mjs'
-              - 'eslint.config.js'
-              - 'eslint.config.cjs'
-              - '.eslintrc.json'
-              - '.eslintrc.js'
-              - '.eslintrc'
-              - '.gitignore'
-              - '.release-it.json'
-              - '.renovate.json'
-              - '.npmrc'
+  - changed-files:
+      - any-glob-to-any-file:
+          - '.editorconfig'
+          - '.gitignore'
+          - '.prettierrc'
+          - '.release-it.json'
+          - 'eslint.config.js'
+          - '.githooks/**'
 'context: github':
-  - any:
-      - changed-files:
-          - any-glob-to-any-file:
-              - .github/**
-'context: docker':
-  - any:
-      - changed-files:
-          - any-glob-to-any-file:
-              - Dockerfile
+  - changed-files:
+      - any-glob-to-any-file:
+          - '.github/**'
 'context: npm':
-  - any:
-      - changed-files:
-          - any-glob-to-any-file:
-              - '.npmrc'
-'context: rollup':
-  - any:
-      - changed-files:
-          - any-glob-to-any-file:
-              - 'rollup.config.js'
-              - 'rollup.config.mjs'
-              - 'rollup.*.config.js'
-              - 'rollup.*.config.mjs'
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'package.json'
+          - 'package-lock.json'
 'mindless: ✏️ docs':
   - any:
-      - head-branch: ['^docs', 'docs']
+      - head-branch: ['^docs/']
       - changed-files:
           - any-glob-to-any-file:
               - '**/*.md'
-'mindless: dependencies':
+# Dependabot's branches too, or sync-labels would remove the label Dependabot
+# sets on GitHub Actions updates, which change no lockfile
+'mindless: 📦 dependencies':
   - any:
+      - head-branch: ['^dependabot/']
       - changed-files:
           - any-glob-to-any-file:
               - 'package-lock.json'
-              - 'yarn.lock'
 
-# Add '✨ feature' label to any PR where the head branch name starts with `feat` or has a `feat` section in the name
+# By branch prefix only, so docs/fix-something is not labelled a bug
 '✨ feature':
-  - head-branch: ['^feat', 'feat']
+  - head-branch: ['^feat/']
 'problems: 🐛 bug':
-  - head-branch: ['^fix', 'fix']
+  - head-branch: ['^fix/']
 'mindless: 🤖 chore':
-  - head-branch: ['^chore', 'chore']
+  - head-branch: ['^chore/']
 'improvements: 💡 enhancement':
-  - head-branch: ['^improvements', 'improvements']
-
-# Add 'release' label to any PR that is opened against the `main` branch
-release:
-  - base-branch: 'main'
+  - head-branch: ['^improvements/']
