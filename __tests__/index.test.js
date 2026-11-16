@@ -1,0 +1,148 @@
+import { ESLint } from 'eslint';
+
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
+
+import config from '../index.js';
+
+// The configuration on its own, as a consumer's eslint.config.js would use it
+const eslint = new ESLint({
+  overrideConfigFile: true,
+  overrideConfig: config
+});
+/** The rule ids reported for `code`, linted as if it were `filePath`. */
+const ruleIdsFor = async (code, filePath) => {
+  const [result] = await eslint.lintText(code, { filePath });
+
+  return result.messages.map((message) => message.ruleId);
+};
+/** The severity of `rule` for `filePath`: 0 off, 1 warn, 2 error. */
+const severityFor = async (rule, filePath) => {
+  const { rules } = await eslint.calculateConfigForFile(filePath);
+
+  return rules[rule]?.[0];
+};
+
+describe('the exported configuration', () => {
+  it('is an array of flat config objects', () => {
+    assert.ok(Array.isArray(config));
+    assert.ok(config.length > 0);
+
+    for (const block of config) assert.equal(typeof block, 'object');
+  });
+
+  it('ignores build output and dependencies, not tests', async () => {
+    assert.equal(await eslint.isPathIgnored('node_modules/a/index.js'), true);
+    assert.equal(await eslint.isPathIgnored('dist/index.js'), true);
+    assert.equal(await eslint.isPathIgnored('coverage/index.js'), true);
+    assert.equal(await eslint.isPathIgnored('src/__tests__/a.ts'), false);
+    assert.equal(await eslint.isPathIgnored('tests/a.js'), false);
+    assert.equal(await eslint.isPathIgnored('src/a.test.js'), false);
+  });
+});
+
+describe('JavaScript', () => {
+  it('reports its own rules', async () => {
+    assert.ok(
+      (
+        await ruleIdsFor('var a = 1, b = 2;\n\nexport { a, b };\n', 'src/a.js')
+      ).includes('one-var')
+    );
+  });
+
+  it('accepts double quotes that avoid escaping a single quote (#92)', async () => {
+    assert.deepEqual(
+      await ruleIdsFor('export const a = "It\'s";\n', 'src/a.js'),
+      []
+    );
+  });
+
+  it('still wants single quotes otherwise', async () => {
+    assert.ok(
+      (await ruleIdsFor('export const a = "plain";\n', 'src/a.js')).includes(
+        '@stylistic/quotes'
+      )
+    );
+  });
+
+  it("doesn't know Node's globals outside tests", async () => {
+    assert.deepEqual(
+      await ruleIdsFor('export const env = process.env;\n', 'src/a.js'),
+      ['no-undef']
+    );
+  });
+});
+
+describe('TypeScript', () => {
+  it('leaves undefined names to the type checker', async () => {
+    assert.deepEqual(
+      await ruleIdsFor('export type C = FrameRequestCallback;\n', 'src/a.ts'),
+      []
+    );
+  });
+
+  it('reports typescript-eslint rules', async () => {
+    assert.deepEqual(
+      await ruleIdsFor('export const value: any = 1;\n', 'src/a.ts'),
+      ['@typescript-eslint/no-explicit-any']
+    );
+  });
+});
+
+describe('Markdown', () => {
+  it('is parsed as Markdown, not JavaScript (#87)', async () => {
+    assert.deepEqual(
+      await ruleIdsFor(
+        '# Title\n\nSome text, and a [link](https://a.b).\n',
+        'a.md'
+      ),
+      []
+    );
+  });
+
+  it('reports Markdown rules', async () => {
+    assert.ok(
+      (await ruleIdsFor('# Title\n\nAn [empty link]().\n', 'a.md')).includes(
+        'markdown/no-empty-links'
+      )
+    );
+  });
+});
+
+describe('test files', () => {
+  for (const file of [
+    'src/__tests__/a.ts',
+    'src/__mocks__/a.js',
+    'tests/a.js',
+    'src/a.spec.ts'
+  ]) {
+    it(`${file} knows Node's globals`, async () => {
+      assert.deepEqual(
+        await ruleIdsFor('export const env = process.env;\n', file),
+        []
+      );
+    });
+  }
+
+  it('still get the other rules', async () => {
+    assert.ok(
+      (
+        await ruleIdsFor(
+          'var a = 1, b = 2;\n\nexport { a, b };\n',
+          'src/a.test.js'
+        )
+      ).includes('one-var')
+    );
+  });
+
+  it('skip browser support checks and default-member warnings', async () => {
+    const file = 'src/__tests__/a.test.js';
+
+    assert.equal(await severityFor('compat/compat', file), 0);
+    assert.equal(
+      await severityFor('import-x/no-named-as-default-member', file),
+      0
+    );
+    assert.equal(await severityFor('compat/compat', 'src/a.js'), 2);
+  });
+});

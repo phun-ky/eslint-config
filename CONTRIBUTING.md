@@ -148,11 +148,13 @@ You need Node.js 24 and npm 11.
 ```shell
 npm ci
 npm run lint
+npm test
 npm run check:pack
 ```
 
 | Command                       | What it does                                                                                          |
 | ----------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `npm test`                    | Runs the tests of the configuration, with coverage of `index.js`                                      |
 | `npm run lint`                | Lints every file, Markdown included, with this configuration and Prettier                             |
 | `npm run format:check`        | Checks the format of the JSON and YAML files with Prettier                                            |
 | `npm run check:pack`          | Packs the package, installs it in an empty project and lints the fixtures with it                     |
@@ -160,8 +162,6 @@ npm run check:pack
 | `npm run release:dry-run`     | Shows whether merging would release, and the planned version and changelog                            |
 | `npm run commit`              | Helps write a conventional commit message                                                             |
 | `npm run bestpractices:url`   | Prints bestpractices.dev links that propose the answers in `.bestpractices.json` (for the maintainer) |
-
-`npm test` is a placeholder that fails; the tests run with `npm run check:pack`.
 
 #### Coding Style
 
@@ -172,14 +172,22 @@ every pull request, and a pull request that fails them can't be merged.
 
 #### Tests
 
-`npm run check:pack` lints fixtures with the packed package, as a consumer would
-get it, and checks the rule ids each fixture reports, that no file is ignored or
-fails to parse, and that `eslint --fix` doesn't loop. It runs in CI on Node 24
-and on Node 22.13.0, the oldest version `engines` allows.
+There are two kinds of tests, and both run in CI on every pull request:
 
-- **A rule change must come with a fixture** in `.github/scripts/check-pack.sh`:
-  a file that the changed rule reports, or one it no longer reports.
-- **Bug fixes must come with a fixture** that fails without the fix.
+- **`npm test`** runs the tests in `__tests__` with Node's test runner. They
+  lint snippets with `index.js` through ESLint's Node API and check what is
+  reported, and fail when the coverage of `index.js` drops below 99% of lines,
+  100% of functions or 95% of branches.
+- **`npm run check:pack`** lints fixtures with the packed package, as a consumer
+  would get it, and checks the rule ids each fixture reports, that no file is
+  ignored or fails to parse, and that `eslint --fix` doesn't loop. It runs on
+  Node 24 and on Node 22.13.0, the oldest version `engines` allows.
+
+What a change needs:
+
+- **A rule change must come with a test** in `__tests__`: a snippet that the
+  changed rule reports, or one it no longer reports.
+- **Bug fixes must come with a test** that fails without the fix.
 - **Packaging changes** are tested by `npm run check:pack` itself.
 
 #### Developer Certificate of Origin

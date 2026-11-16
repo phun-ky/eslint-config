@@ -130,9 +130,11 @@ Advisory Database:
 | Licence outside the policy | New runtime dependency | Not merged                                                                                       |
 
 **Accepted exceptions.** A vulnerability that can't be fixed from this
-repository yet, and can't be exploited through it, is listed here and removed as
-soon as a fix is reachable. Dependency review and the release audit fail only on
-high and critical findings, so a moderate exception needs no entry there:
+repository yet, and can't be exploited through it, is listed here, recorded as
+an [OpenVEX](https://openvex.dev/) statement in
+[`vex.openvex.json`](vex.openvex.json), and removed as soon as a fix is
+reachable. Dependency review and the release audit fail only on high and
+critical findings, so a moderate exception needs no entry there:
 
 | Advisory                                                                            | Package          | Why it is accepted                                                                                                                                                                                                                                                               | Remove when                                                                                                          |
 | ----------------------------------------------------------------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
@@ -164,3 +166,8 @@ Publishing to npm needs no secret: it uses short-lived OIDC tokens from GitHub.
   available to workflows run from forks.
 - **Rotation:** at least once a year, and immediately if one may have been
   exposed.
+
+## Assurance Case
+
+Why these expectations hold, where they don't hold yet, and the threat model and
+trust boundaries behind them are set out in the [assurance case](ASSURANCE.md).

@@ -25,7 +25,9 @@ every release again on Node 24 before it is published. From here:
 
 ### Project health
 
-- **OpenSSF Best Practices:** the passing badge, then silver and OSPS Baseline.
+- **OpenSSF Best Practices:** passing since November 2026. OSPS Baseline levels
+  1 and 2 next; silver and Baseline level 3 need a second maintainer (access
+  continuity and reviews by someone other than the author).
 - **A second maintainer**, so that pull requests get a review from someone other
   than the author and access to the project doesn't rest on one person; see
   [governance](GOVERNANCE.md#continuity).

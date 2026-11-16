@@ -1,0 +1,27 @@
+{
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "https://github.com/phun-ky/eslint-config/blob/main/vex.openvex.json",
+  "author": "Alexander Vassbotn Røyne-Helgesen",
+  "role": "Maintainer",
+  "timestamp": "2026-11-16T00:00:00Z",
+  "version": 1,
+  "statements": [
+    {
+      "vulnerability": {
+        "@id": "https://github.com/advisories/GHSA-g3hv-75wg-m249",
+        "name": "GHSA-g3hv-75wg-m249",
+        "aliases": ["CVE-2026-118764"]
+      },
+      "timestamp": "2026-11-16T00:00:00Z",
+      "products": [
+        {
+          "@id": "pkg:npm/eslint-config-phun-ky",
+          "subcomponents": [{ "@id": "pkg:npm/minimatch@10.2.6" }]
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_cannot_be_controlled_by_adversary",
+      "impact_statement": "minimatch reaches the package through typescript-eslint, whose latest release still requires minimatch ^10.2.2. ESLint and the plugins match only glob patterns written in configuration (files, ignores and plugin settings), never text from the files being linted, and ESLint configuration is JavaScript, so anyone able to write those patterns can already run code. Removed when typescript-eslint allows minimatch 11.0.1 or later: https://github.com/phun-ky/eslint-config/issues/114"
+    }
+  ]
+}
