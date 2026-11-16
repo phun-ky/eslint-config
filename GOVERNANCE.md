@@ -27,18 +27,18 @@ Decisions are made in public:
 
 With one maintainer, a pull request by the maintainer has no second reviewer.
 The rules on `main` therefore require pull requests, resolved review threads and
-passing checks (lint, the packed package on Node 24 and on the oldest supported
-Node, dependency review, CodeQL and the DCO), but no approving review, and the
-maintainer can bypass them so that releases can push their commit and tag. Once
-there is a second maintainer, pull requests need an approving review from a
-maintainer other than the author.
+passing checks (lint, tests, the packed package on Node 24 and on the oldest
+supported Node, dependency review, CodeQL and the DCO), but no approving review,
+and the maintainer can bypass them so that releases can push their commit and
+tag. Once there is a second maintainer, pull requests need an approving review
+from a maintainer other than the author.
 
 ## Roles
 
 | Role            | Who                                                                        | Responsibilities                                                                                                                                                                                     |
 | --------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Maintainer**  | Alexander Vassbotn Røyne-Helgesen ([@phun-ky](https://github.com/phun-ky)) | Sets the direction and roadmap; triages issues; reviews and merges pull requests; makes releases; handles security reports; enforces the Code of Conduct; manages the repository and the npm package |
-| **Contributor** | Anyone who opens an issue or a pull request                                | Follows the [contributing guide](CONTRIBUTING.md) and the Code of Conduct; includes a fixture with rule changes                                                                                      |
+| **Contributor** | Anyone who opens an issue or a pull request                                | Follows the [contributing guide](CONTRIBUTING.md) and the Code of Conduct; includes a test with rule changes                                                                                         |
 
 ### Becoming a maintainer
 
