@@ -12,12 +12,16 @@ updates:
           - 'patch'
     schedule:
       interval: 'weekly'
+    # Only versions published at least 14 days ago: a compromised release is
+    # usually caught within days. Security updates still open at once.
+    cooldown:
+      default-days: 14
+    labels:
+      - 'mindless: 📦 dependencies'
     commit-message:
       prefix: 'chore: 🤖 '
-    open-pull-requests-limit: 2
     allow:
       - dependency-type: direct
-      - dependency-type: production
   - package-ecosystem: 'github-actions'
     directory: '/'
     # Same grouping as npm: minor and patch together, each major on its own.
@@ -29,6 +33,9 @@ updates:
           - 'patch'
     schedule:
       interval: 'weekly'
+    # Same as npm: only versions published at least 14 days ago
+    cooldown:
+      default-days: 14
     commit-message:
       prefix: 'chore: 🤖 '
     labels:
