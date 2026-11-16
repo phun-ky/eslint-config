@@ -31,6 +31,8 @@ jobs:
         run: npm run format:check
       - name: Check OpenSSF answers # Valid statuses, and every linked file and heading exists
         run: npm run check:bestpractices
+      - name: Test # The configuration's behaviour, with coverage thresholds
+        run: npm test
       - name: Check the packed package
         run: npm run check:pack
       - name: Check the SBOM builds # Publish attaches it after npm publish, too late to fail there
