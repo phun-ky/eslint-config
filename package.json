@@ -31,7 +31,8 @@
     "prepare": "git config core.hooksPath .githooks || true",
     "release": "npx release-it --ci",
     "release:dry-run": ".github/scripts/should-release.sh && release-it --ci --dry-run --github.release=false --no-git.requireCleanWorkingDir --no-git.requireUpstream",
-    "test": "node --test --experimental-test-coverage --test-coverage-include=index.js --test-coverage-lines=99 --test-coverage-functions=100 --test-coverage-branches=95 '__tests__/**/*.js'"
+    "test": "node --test --experimental-test-coverage --test-coverage-include=index.js --test-coverage-lines=99 --test-coverage-functions=100 --test-coverage-branches=95 '__tests__/**/*.js'",
+    "test:hooks": "node --test scripts/__tests__/commit-msg.test.mjs"
   },
   "config": {
     "commitizen": {
