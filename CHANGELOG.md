@@ -1,5 +1,25 @@
 # Changelog
 
+## [3.0.1](https://github.com/phun-ky/eslint-config/compare/3.0.0...3.0.1) (2026-11-21)
+
+### Tasks
+
+* 🤖 Add a Dependabot cooldown, and label and limit npm updates ([c796709](https://github.com/phun-ky/eslint-config/commit/c796709254df0ce1c8d8e0231b36cb6b5d88ba8f)), closes [#104](https://github.com/phun-ky/eslint-config/issues/104)
+* 🤖 Add OpenSSF Best Practices answers and their check ([7417272](https://github.com/phun-ky/eslint-config/commit/741727238dbbd454ff9b4960848465d861aac60c)), closes [#111](https://github.com/phun-ky/eslint-config/issues/111)
+* 🤖 Answer the silver and OSPS Baseline criteria ([b58b675](https://github.com/phun-ky/eslint-config/commit/b58b675028dd789caea5b8081da94b20b8665a3a))
+* 🤖 Cite the README rule table test in the Best Practices answers ([2af9868](https://github.com/phun-ky/eslint-config/commit/2af9868d37a1aa1493be0435cacd11a7ba504a88)), references [#116](https://github.com/phun-ky/eslint-config/issues/116)
+* 🤖 Fix the labeler rules ([06800ff](https://github.com/phun-ky/eslint-config/commit/06800fff89e424b3d0c0272794a0e6eee3850d86)), references [#105](https://github.com/phun-ky/eslint-config/issues/105)
+* 🤖 Refresh basic-ftp and ip-address ([a8c838b](https://github.com/phun-ky/eslint-config/commit/a8c838bdfd662a5e0ab5ae003972598aeada3f7c)), closes [#109](https://github.com/phun-ky/eslint-config/issues/109)
+
+### Documentation
+
+* ✏️ Add the assurance case and a VEX statement for minimatch ([1666b6c](https://github.com/phun-ky/eslint-config/commit/1666b6cebdd589dd7e80059fecacfaf56fcb4f9f))
+* ✏️ Rewrite the security policy, and add governance, roadmap and Security Insights ([53d4cab](https://github.com/phun-ky/eslint-config/commit/53d4cab3e0dba559dadb03513d734a1b9041655a)), closes [#110](https://github.com/phun-ky/eslint-config/issues/110), references [#114](https://github.com/phun-ky/eslint-config/issues/114)
+
+### Bug
+
+* 🐛 Make the README rule table match index.js ([e80a6cf](https://github.com/phun-ky/eslint-config/commit/e80a6cf532c3292e7ece9c82f021c59c17fc11e1)), closes [#116](https://github.com/phun-ky/eslint-config/issues/116)
+
 ## [3.0.0](https://github.com/phun-ky/eslint-config/compare/2.0.11...3.0.0) (2026-11-10)
 
 ### ⚠ BREAKING CHANGES
