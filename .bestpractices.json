@@ -156,7 +156,7 @@
   "documentation_quick_start_status": "Met",
   "documentation_quick_start_justification": "Requirements, installation and a usage example, which check:pack runs against the packed package: https://github.com/phun-ky/eslint-config/blob/main/README.md#usage",
   "documentation_current_status": "Met",
-  "documentation_current_justification": "The README usage example is linted with the packed package by check:pack on every pull request and before every release, and the documents are updated in the same pull request as the change they describe. A known mismatch in the README rule table is tracked in https://github.com/phun-ky/eslint-config/issues/116",
+  "documentation_current_justification": "The README usage example is linted with the packed package by check:pack on every pull request and before every release, npm test fails when the README rule table no longer matches the rules index.js sets, and the documents are updated in the same pull request as the change they describe: https://github.com/phun-ky/eslint-config/blob/main/CONTRIBUTING.md#tests",
   "documentation_achievements_status": "Met",
   "documentation_achievements_justification": "The README shows the OpenSSF Best Practices and Scorecard badges: https://github.com/phun-ky/eslint-config/blob/main/README.md",
   "accessibility_best_practices_status": "N/A",
