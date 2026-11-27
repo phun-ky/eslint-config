@@ -22,6 +22,7 @@
   - [Usage](#usage)
     - [Files](#files)
       - [Tests](#tests)
+    - [Prettier](#prettier)
   - [Rules](#rules)
     - [Extended](#extended)
   - [Contributing](#contributing)
@@ -80,6 +81,27 @@ Tests are linted with the same rules as the rest of the code. Files in
   often used through their default export, like `fc.assert()` in fast-check.
 
 Before 3.0.0, these files were ignored.
+
+### Prettier
+
+The config formats code with Prettier through `prettier/prettier`, and some of
+its own rules check formatting too. For the two to agree, set these in your
+Prettier config, for example `.prettierrc`:
+
+```json
+{
+  "singleQuote": true,
+  "trailingComma": "none"
+}
+```
+
+With Prettier's defaults, double quotes and trailing commas, `prettier/prettier`
+asks for the opposite of `@stylistic/quotes` and `@stylistic/comma-dangle`, and
+`eslint --fix` reports circular fixes.
+
+Keep `printWidth` at 80, Prettier's default, or lower. `@stylistic/max-len`
+reports code lines longer than 80 characters, and Prettier can't shorten every
+line, such as one with a long regular expression; shorten those by hand.
 
 ## Rules
 
