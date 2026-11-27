@@ -200,17 +200,10 @@ export default [
           next: 'var'
         }
       ],
-      '@stylistic/indent': [
-        'error',
-        2,
-        {
-          MemberExpression: 1,
-          SwitchCase: 1,
-          ArrayExpression: 1,
-          ObjectExpression: 1,
-          offsetTernaryExpressions: true
-        }
-      ],
+      // Prettier owns indentation, and prettier/prettier reports it; this rule
+      // disagrees with Prettier on curried arrow functions, and eslint --fix
+      // loops between the two
+      '@stylistic/indent': 'off',
       '@stylistic/object-curly-spacing': ['error', 'always'],
       '@stylistic/no-extra-semi': 1,
       '@stylistic/no-trailing-spaces': [
@@ -248,8 +241,7 @@ export default [
   {
     files: ['**/*.md'],
     rules: {
-      'no-irregular-whitespace': 'off',
-      '@stylistic/indent': 'off'
+      'no-irregular-whitespace': 'off'
     }
   }
 ];

@@ -1,8 +1,10 @@
 import { ESLint } from 'eslint';
+import * as prettier from 'prettier';
 
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { describe, it } from 'node:test';
+import { fileURLToPath } from 'node:url';
 
 import config from '../index.js';
 
@@ -80,6 +82,28 @@ describe('TypeScript', () => {
       await ruleIdsFor('export type C = FrameRequestCallback;\n', 'src/a.ts'),
       []
     );
+  });
+
+  it('accepts how Prettier indents a curried arrow function', async () => {
+    const code = [
+      'export class RemoteTaskError extends Error {}',
+      '',
+      'export const isRemoteError =',
+      '  (message: RegExp, check: (error: RemoteTaskError) => boolean = () => true) =>',
+      '  (error: unknown) =>',
+      '    error instanceof RemoteTaskError &&',
+      '    message.test(error.message) &&',
+      '    check(error);',
+      ''
+    ].join('\n');
+    const filePath = fileURLToPath(new URL('../src/a.ts', import.meta.url));
+    const options = await prettier.resolveConfig(filePath);
+
+    assert.equal(
+      await prettier.format(code, { ...options, filepath: filePath }),
+      code
+    );
+    assert.deepEqual(await ruleIdsFor(code, 'src/a.ts'), []);
   });
 
   it('reports typescript-eslint rules', async () => {

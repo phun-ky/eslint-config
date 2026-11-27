@@ -126,14 +126,13 @@ The custom rules extends/overrides these configs and plugins:
 | [@stylistic/padded-blocks](https://eslint.style/rules/padded-blocks)                                                          | Enforces or disallows padding within blocks.                                                                                                             | 🔧  |
 | [@stylistic/comma-dangle](https://eslint.style/rules/comma-dangle)                                                            | Requires or disallows trailing commas.                                                                                                                   | 🔧  |
 | [@stylistic/padding-line-between-statements](https://eslint.style/rules/padding-line-between-statements)                      | Requires or disallows blank lines between statements.                                                                                                    | 🔧  |
-| [@stylistic/indent](https://eslint.style/rules/indent)                                                                        | Enforces consistent indentation.                                                                                                                         | 🔧  |
+| [@stylistic/indent](https://eslint.style/rules/indent)                                                                        | Off: Prettier owns indentation, and this rule disagrees with it on curried arrow functions.                                                              |     |
 | [@stylistic/object-curly-spacing](https://eslint.style/rules/object-curly-spacing)                                            | Enforces consistent spacing inside braces.                                                                                                               | 🔧  |
 | [@stylistic/no-extra-semi](https://eslint.style/rules/no-extra-semi)                                                          | Disallows unnecessary semicolons.                                                                                                                        | 🔧  |
 | [@stylistic/no-trailing-spaces](https://eslint.style/rules/no-trailing-spaces)                                                | Disallows trailing whitespace at the end of lines.                                                                                                       | 🔧  |
 | [@stylistic/semi](https://eslint.style/rules/semi)                                                                            | Enforces or disallows semicolons.                                                                                                                        | 🔧  |
 
-In Markdown files, `no-irregular-whitespace` and `@stylistic/indent` are turned
-off.
+In Markdown files, `no-irregular-whitespace` is turned off.
 
 ## Contributing
 
