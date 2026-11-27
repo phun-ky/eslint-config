@@ -1,5 +1,20 @@
 # Changelog
 
+## [3.0.2](https://github.com/phun-ky/eslint-config/compare/3.0.1...3.0.2) (2026-11-27)
+
+### Tasks
+
+* 🤖 ignore unfixable dev-dependency advisories in osv-scanner ([7ebc557](https://github.com/phun-ky/eslint-config/commit/7ebc557dfe7b44f69d0f3d2a5ab4033d8cad7add))
+* 🤖 only ignore advisories present in the lockfile ([8fca476](https://github.com/phun-ky/eslint-config/commit/8fca4765d1f47fdb1c2801e5ceaf91e7bcbbee9e))
+
+### Documentation
+
+* ✏️ README: drop the Ukraine note ([c6d297b](https://github.com/phun-ky/eslint-config/commit/c6d297bb020bd598ab303252d3722733f03a419a))
+
+### Bug
+
+* 🐛 Leave indentation to Prettier ([ad93c9e](https://github.com/phun-ky/eslint-config/commit/ad93c9e829e77547add59f8b58bdbb96f7bac0be))
+
 ## [3.0.1](https://github.com/phun-ky/eslint-config/compare/3.0.0...3.0.1) (2026-11-21)
 
 ### Tasks
